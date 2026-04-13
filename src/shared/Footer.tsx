@@ -17,7 +17,7 @@ export function Footer() {
                                 alt="Setrips Logo"
                                 width={140}
                                 height={60}
-                                className="h-auto w-[140px]"
+                                className="h-auto w-[140px] object-contain"
                                 priority
                             />
                         </Link>
