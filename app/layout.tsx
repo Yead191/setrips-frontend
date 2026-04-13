@@ -3,7 +3,10 @@ import "./globals.css";
 import { Toaster } from "sonner";
 import Navbar from "@/shared/Navbar";
 import { Footer } from "@/shared/Footer";
+import { Geist } from "next/font/google";
+import { cn } from "@/lib/utils";
 
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 export const metadata: Metadata = {
   title: "Setrips",
@@ -21,7 +24,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`h-full antialiased`}
+      className={cn("h-full", "antialiased", "font-sans", geist.variable)}
     >
       <body className="min-h-full flex flex-col">
         <Toaster richColors position="top-center" duration={2000} />

@@ -10,6 +10,8 @@
   --border: #e4e4e7;
   --input: #e4e4e7;
   --ring: #0057A7;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 98%;
 }
 
 @theme inline {
@@ -24,6 +26,8 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
 }
 
 @layer utilities {
