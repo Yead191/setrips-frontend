@@ -1,6 +1,7 @@
 import { Banner } from "@/shared/Banner";
 import { CarCarousel } from "@/components/CarCarousel";
 import { FAQ } from "@/shared/FAQ";
+import OurServices from "@/components/home/services/Services";
 
 const Home = () => {
   return (
@@ -14,6 +15,7 @@ const Home = () => {
       />
       <CarCarousel />
       <FAQ />
+      <OurServices />
     </main>
   )
 }
