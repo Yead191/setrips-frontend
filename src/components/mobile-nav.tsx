@@ -6,10 +6,11 @@ import { usePathname } from "next/navigation";
 import { Menu } from "lucide-react";
 
 import { NAV_ITEMS } from "@/constants/navbar-data";
-import { Button } from "@/ui/button";
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/ui/sheet";
+
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "../../ui/sheet";
 import { cn } from "@/lib/utils";
 import AuthModal from "../features/(auth-pages)";
+import { Button } from "../../ui/button";
 
 export function MobileNav() {
   const [open, setOpen] = useState(false);

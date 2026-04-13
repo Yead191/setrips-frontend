@@ -1,9 +1,9 @@
 "use client";
 
-import { Button } from "@/ui/button";
-import { Input } from "@/ui/input";
-import { Label } from "@/ui/label";
 import { ArrowLeft } from "lucide-react";
+import { Label } from "../../../../ui/label";
+import { Input } from "../../../../ui/input";
+import { Button } from "../../../../ui/button";
 
 interface ForgotPasswordFormProps {
   onSwitch: (view: "signin" | "otp") => void;
@@ -13,7 +13,7 @@ export function ForgotPasswordForm({ onSwitch }: ForgotPasswordFormProps) {
   return (
     <div className="flex flex-col gap-6">
       <div className="flex flex-col gap-2">
-        <button 
+        <button
           onClick={() => onSwitch("signin")}
           className="flex items-center gap-2 text-sm text-primary hover:underline w-fit"
         >

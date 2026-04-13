@@ -12,7 +12,7 @@ export function DesktopNav() {
     <nav className="hidden md:flex items-center gap-6 lg:gap-8">
       {NAV_ITEMS.map((item) => {
         const isActive = pathname === item.href;
-        
+
         return (
           <Link
             key={item.href}
@@ -23,7 +23,7 @@ export function DesktopNav() {
             )}
           >
             {item.label}
-            <span 
+            <span
               className={cn(
                 "absolute -bottom-1 left-0 h-[2px] bg-primary transition-all",
                 isActive ? "w-full" : "w-0 group-hover:w-full"

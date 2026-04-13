@@ -1,5 +1,5 @@
-import { Dialog, DialogContent, DialogTrigger } from "@/ui/dialog";
 import { AuthContainer } from "../../components/auth-container";
+import { Dialog, DialogContent, DialogTrigger } from "../../../ui/dialog";
 
 interface AuthModalProps {
   trigger: React.ReactNode;

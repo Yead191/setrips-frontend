@@ -1,10 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
-
-import { Button } from "@/ui/button";
 import { MobileNav } from "@/components/mobile-nav";
 import { DesktopNav } from "@/components/desktop-nav";
 import AuthModal from "@/features/(auth-pages)";
+import { Button } from "../../ui/button";
 
 
 export default function Navbar() {

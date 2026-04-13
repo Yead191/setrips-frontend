@@ -1,4 +1,4 @@
-import { Banner } from "@/components/shared/banner/Banner";
+import { Banner } from "@/shared/Banner";
 import { FAQ } from "@/shared/FAQ";
 
 const Home = () => {

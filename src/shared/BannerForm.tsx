@@ -5,10 +5,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { format } from "date-fns";
 import { CalendarIcon, Clock, MapPin, Search } from "lucide-react";
-
-import { cn } from "@/lib/utils";
-import { Button } from "@/ui/button";
-import { Calendar } from "@/ui/calendar";
+import { Button } from "../../ui/button";
+import { Calendar } from "../../ui/calendar";
 import {
   Form,
   FormControl,
@@ -16,10 +14,11 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/ui/form";
-import { Input } from "@/ui/input";
-import { Popover, PopoverContent, PopoverTrigger } from "@/ui/popover";
-import { RadioGroup, RadioGroupItem } from "@/ui/radio-group";
+} from "../../ui/form";
+import { Input } from "../../ui/input";
+import { Popover, PopoverContent, PopoverTrigger } from "../../ui/popover";
+import { RadioGroup, RadioGroupItem } from "../../ui/radio-group";
+import { cn } from "../lib/utils";
 
 const formSchema = z.object({
   tripType: z.enum(["hourly", "distance"]),

@@ -1,9 +1,9 @@
 "use client";
 
-import { Button } from "@/ui/button";
-import { Input } from "@/ui/input";
-import { Label } from "@/ui/label";
-import { Checkbox } from "@/ui/checkbox";
+import { Button } from "../../../../ui/button";
+import { Input } from "../../../../ui/input";
+import { Label } from "../../../../ui/label";
+import { Checkbox } from "../../../../ui/checkbox";
 import { FacebookIcon, GoogleIcon } from "@/components/brands";
 
 interface SignInFormProps {
@@ -37,7 +37,7 @@ export function SignInForm({ onSwitch }: SignInFormProps) {
             <Checkbox id="remember" className="border-primary data-[state=checked]:bg-primary" />
             <Label htmlFor="remember" className="text-sm font-normal cursor-pointer text-[#474747]">Remember me</Label>
           </div>
-          <button 
+          <button
             type="button"
             onClick={() => onSwitch("forgot-password")}
             className="text-sm font-medium text-red-500 hover:underline"
@@ -73,7 +73,7 @@ export function SignInForm({ onSwitch }: SignInFormProps) {
 
       <p className="text-center text-sm text-[#474747]">
         Dont have an account?{" "}
-        <button 
+        <button
           onClick={() => onSwitch("signup")}
           className="text-primary font-semibold hover:underline"
         >

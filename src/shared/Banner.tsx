@@ -1,6 +1,7 @@
-import { Button } from "@/ui/button";
+import { Button } from "../../ui/button";
 import { BannerForm } from "./BannerForm";
 import Image from "next/image";
+
 
 interface BannerProps {
   backgroundImage: string;

@@ -1,9 +1,9 @@
 "use client";
 
-import { Button } from "@/ui/button";
-import { Input } from "@/ui/input";
-import { Label } from "@/ui/label";
 import { ArrowLeft } from "lucide-react";
+import { Label } from "../../../../ui/label";
+import { Input } from "../../../../ui/input";
+import { Button } from "../../../../ui/button";
 
 interface OtpFormProps {
   onSwitch: (view: "forgot-password" | "reset-password") => void;
@@ -13,7 +13,7 @@ export function OtpForm({ onSwitch }: OtpFormProps) {
   return (
     <div className="flex flex-col gap-6">
       <div className="flex flex-col gap-2">
-        <button 
+        <button
           onClick={() => onSwitch("forgot-password")}
           className="flex items-center gap-2 text-sm text-primary hover:underline w-fit"
         >
@@ -29,11 +29,11 @@ export function OtpForm({ onSwitch }: OtpFormProps) {
           <Label>Verification Code</Label>
           <div className="grid grid-cols-4 gap-4 mt-2">
             {[1, 2, 3, 4].map((i) => (
-              <Input 
-                key={i} 
-                type="text" 
-                maxLength={1} 
-                className="bg-[#eff6ff] border-none h-14 text-center text-xl font-bold" 
+              <Input
+                key={i}
+                type="text"
+                maxLength={1}
+                className="bg-[#eff6ff] border-none h-14 text-center text-xl font-bold"
               />
             ))}
           </div>

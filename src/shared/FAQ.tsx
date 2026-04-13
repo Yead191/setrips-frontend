@@ -41,7 +41,7 @@ export function FAQ() {
             <div className="w-full space-y-3">
               {FAQ_DATA.map((item, index) => {
                 const isOpen = activeIndex === index;
-                
+
                 return (
                   <div
                     key={`faq-${index}`}
@@ -52,15 +52,15 @@ export function FAQ() {
                       className="w-full text-left font-normal py-4 px-6 flex items-center justify-between hover:text-primary transition-colors focus:outline-none"
                     >
                       <span className="text-lg">{item.question}</span>
-                      <ChevronDown 
+                      <ChevronDown
                         className={cn(
                           "w-5 h-5 transition-transform duration-300 text-muted-foreground",
                           isOpen && "rotate-180 text-primary"
-                        )} 
+                        )}
                       />
                     </button>
-                    
-                    <div 
+
+                    <div
                       className={cn(
                         "grid transition-all duration-300 ease-in-out",
                         isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"

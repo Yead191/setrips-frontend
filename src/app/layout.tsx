@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Toaster } from "sonner";
-import Navbar from "@/shared/Navbar";
-import { Footer } from "@/shared/Footer";
-import { cn } from "@/lib/utils";
+import Navbar from "../shared/Navbar";
+import { cn } from "../lib/utils";
+import { Footer } from "../shared/Footer";
+
 
 export const metadata: Metadata = {
   title: "Setrips",

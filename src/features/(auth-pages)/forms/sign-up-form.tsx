@@ -1,8 +1,8 @@
 "use client";
 
-import { Button } from "@/ui/button";
-import { Input } from "@/ui/input";
-import { Label } from "@/ui/label";
+import { Button } from "../../../../ui/button";
+import { Input } from "../../../../ui/input";
+import { Label } from "../../../../ui/label";
 import { FacebookIcon, GoogleIcon } from "@/components/brands";
 
 interface SignUpFormProps {
@@ -60,7 +60,7 @@ export function SignUpForm({ onSwitch }: SignUpFormProps) {
 
       <p className="text-center text-sm text-[#474747]">
         Already have an account?{" "}
-        <button 
+        <button
           onClick={() => onSwitch("signin")}
           className="text-primary font-semibold hover:underline"
         >
