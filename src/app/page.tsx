@@ -1,4 +1,5 @@
 import { Banner } from "@/shared/Banner";
+import { CarCarousel } from "@/components/CarCarousel";
 import { FAQ } from "@/shared/FAQ";
 
 const Home = () => {
@@ -11,6 +12,7 @@ const Home = () => {
         showButton={true}
         buttonText="Explore Fleet"
       />
+      <CarCarousel />
       <FAQ />
     </main>
   )
