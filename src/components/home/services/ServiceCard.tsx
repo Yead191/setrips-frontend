@@ -14,30 +14,27 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
     linkLabel = "Learn More.",
 }) => {
     return (
-        <div className="group bg-white border border-gray-200 rounded-md overflow-hidden flex flex-col h-full transition-all duration-300 hover:-translate-y-[3px] hover:shadow-[0_8px_32px_rgba(0,0,0,0.12)] cursor-pointer">
+        <div className="group bg-white border border-gray-200 p-[10px] flex flex-col h-full transition-all duration-300 hover:shadow-lg cursor-pointer">
 
             {/* Image */}
-            <div className="w-full aspect-[4/3] overflow-hidden flex-shrink-0">
+            <div className="w-full aspect-[1.15] overflow-hidden shrink-0">
                 <img
                     src={image}
                     alt={title}
                     loading="lazy"
-                    className="w-full h-full object-cover block transition-transform duration-[450ms] ease-in-out group-hover:scale-105"
+                    className="w-full h-full object-cover block transition-transform duration-450 ease-in-out group-hover:scale-105"
                 />
             </div>
 
             {/* Body */}
-            <div className="flex flex-col gap-2 flex-1 px-5 pt-[18px] pb-[22px]">
-                <h3
-                    className="text-xl font-medium text-[#1a1a1a] leading-snug m-0"
-                    style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
-                >
+            <div className="flex flex-col gap-1.5 flex-1 pt-4 pb-2 px-1">
+                <h3 className="text-base text-gray-800 leading-snug m-0">
                     {title}
                 </h3>
 
                 <a
                     href={link}
-                    className="self-start text-[0.82rem] text-gray-700 underline underline-offset-[3px] tracking-[0.01em] transition-colors duration-200 hover:text-[#c9a84c]"
+                    className="self-start text-[13px] text-gray-500 underline underline-offset-[3px] decoration-gray-300 tracking-wide transition-colors duration-200 hover:text-[#c9a84c] hover:decoration-[#c9a84c]"
                 >
                     {linkLabel}
                 </a>

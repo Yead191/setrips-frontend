@@ -47,31 +47,28 @@ const ChevronRight: React.FC = () => (
 );
 
 const navBtnBase =
-    "absolute top-1/2 -translate-y-1/2 z-10 flex items-center justify-center " +
+    "absolute top-1/2 -translate-y-1/2 z-50 flex items-center justify-center " +
     "w-11 h-11 rounded-full bg-white border border-[#d4d4d4] text-[#444] " +
     "transition-all duration-200 cursor-pointer p-0 leading-none " +
-    "hover:bg-[#c9a84c] hover:border-[#c9a84c] hover:text-white hover:shadow-[0_4px_16px_rgba(201,168,76,0.4)] " +
-    "focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#c9a84c] focus-visible:outline-offset-2 " +
+    "hover:bg-[#0057A7] hover:border-[#0057A7] hover:text-white hover:shadow-[0_4px_16px_rgba(0,87,167,0.4)] " +
+    "focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#0057A7] focus-visible:outline-offset-2 " +
     "disabled:opacity-30 disabled:pointer-events-none";
 
 const OurServices: React.FC = () => {
-    const prevRef = useRef<HTMLButtonElement>(null);
-    const nextRef = useRef<HTMLButtonElement>(null);
     const swiperRef = useRef<SwiperRef>(null);
 
     return (
-        <section className="bg-white py-20 overflow-hidden" aria-labelledby="services-heading">
-            <div className="max-w-[1280px] mx-auto px-16 sm:px-20 relative">
+        <section className="bg-white py-12 overflow-hidden" aria-labelledby="services-heading">
+            <div className="container lg:px-20! 2xl:px-16! relative">
 
-                <SectionTitle title="Our Services" align="center" />
+                <SectionTitle title="Our Services" align="center" className="mb-10" />
 
                 <div className="relative flex items-center">
 
                     <button
-                        ref={prevRef}
                         type="button"
                         aria-label="Previous service"
-                        className={`${navBtnBase} -left-14`}
+                        className={`services-prev-btn ${navBtnBase} -left-14 hidden lg:flex`}
                     >
                         <ChevronLeft />
                     </button>
@@ -81,19 +78,10 @@ const OurServices: React.FC = () => {
                         {...SERVICE_SWIPER_SETTINGS}
                         modules={[Navigation]}
                         navigation={{
-                            prevEl: prevRef.current,
-                            nextEl: nextRef.current,
+                            prevEl: '.services-prev-btn',
+                            nextEl: '.services-next-btn',
                         }}
-                        onBeforeInit={(swiper) => {
-                            if (
-                                swiper.params.navigation &&
-                                typeof swiper.params.navigation !== "boolean"
-                            ) {
-                                swiper.params.navigation.prevEl = prevRef.current;
-                                swiper.params.navigation.nextEl = nextRef.current;
-                            }
-                        }}
-                        className="overflow-visible! w-full [&_.swiper-wrapper]:pb-2"
+                        className="w-full py-8! -my-8!"
                     >
                         {SERVICES_DATA.map((service) => (
                             <SwiperSlide key={service.id} className="h-auto!">
@@ -108,10 +96,9 @@ const OurServices: React.FC = () => {
 
                     {/* Next */}
                     <button
-                        ref={nextRef}
                         type="button"
                         aria-label="Next service"
-                        className={`${navBtnBase} -right-14`}
+                        className={`services-next-btn ${navBtnBase} -right-14 hidden lg:flex`}
                     >
                         <ChevronRight />
                     </button>

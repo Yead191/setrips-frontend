@@ -1,0 +1,47 @@
+"use client";
+import Image from "next/image";
+import Marquee from "react-fast-marquee";
+
+const logosTop = [
+    "/assets/images/home/brands/brand1.png",
+    "/assets/images/home/brands/brand2.png",
+    "/assets/images/home/brands/brand3.png",
+    "/assets/images/home/brands/brand4.png",
+    "/assets/images/home/brands/brand5.png",
+
+];
+
+
+// Small logo card component
+const LogoCard = ({ src }: { src: string }) => {
+    return (
+        <div className="mx-20 flex items-center justify-center">
+            <Image
+                src={src}
+                className="w-fit h-[132px] object-contain  hover:grayscale-0 transition cursor-pointer"
+                alt="logo"
+                width={300}
+                height={200}
+            />
+        </div>
+    );
+};
+export default function BrandMarquee() {
+    return (
+        <div className="w-full bg-[#F9F9F9] py-14">
+            {/* Top Row- left */}
+            <Marquee
+                pauseOnHover={true}
+                speed={50}
+                gradient={true}
+                autoFill
+                direction="left"
+            >
+                {logosTop?.map((src, i) => (
+                    <LogoCard key={i} src={src} />
+                ))}
+            </Marquee>
+
+        </div>
+    );
+}

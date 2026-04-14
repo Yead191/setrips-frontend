@@ -23,19 +23,15 @@ const SectionTitle: React.FC<SectionTitleProps> = ({
     className = "",
 }) => {
     return (
-        <div className={`mb-12 ${alignClass[align]} ${className}`}>
-            {/* inline-block so the gold bar anchors to the left edge of the heading text */}
+        <div className={`${alignClass[align]} ${className}`}>
             <div className="inline-block text-left">
-                <h2
-                    className="text-[2.6rem] sm:text-[2.75rem] font-normal tracking-[-0.01em] text-[#1a1a1a] mb-4 leading-[1.15]"
-                    style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
-                >
+                <h2 className="text-[2.2rem] lg:text-[48px] font-normal sm:text-[2.5rem] text-[#1a1a1a] mb-4 leading-[48px] tracking-[-1.2px]">
                     {title}
                 </h2>
 
-                {/* Gold underline */}
+                {/* Gold underline targeting first 3 letters roughly */}
                 <span
-                    className="block h-[3px] w-[52px] rounded-sm bg-[#c9a84c]"
+                    className="block h-[4px] w-[45px] lg:w-[60px] bg-[#C5A02E]"
                     aria-hidden="true"
                 />
 
