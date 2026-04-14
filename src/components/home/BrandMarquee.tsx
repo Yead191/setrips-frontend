@@ -7,7 +7,8 @@ const logosTop = [
     "/assets/images/home/brands/brand2.png",
     "/assets/images/home/brands/brand3.png",
     "/assets/images/home/brands/brand4.png",
-    "/assets/images/home/brands/brand5.png",
+    "/assets/images/home/brands/brand6.png",
+    "/assets/images/home/brands/brand7.png",
 
 ];
 
@@ -28,7 +29,7 @@ const LogoCard = ({ src }: { src: string }) => {
 };
 export default function BrandMarquee() {
     return (
-        <div className="w-full bg-[#F9F9F9] py-14">
+        <div className="w-full bg-[#F9F9F9] py-14 my-12">
             {/* Top Row- left */}
             <Marquee
                 pauseOnHover={true}
@@ -41,7 +42,6 @@ export default function BrandMarquee() {
                     <LogoCard key={i} src={src} />
                 ))}
             </Marquee>
-
         </div>
     );
 }
