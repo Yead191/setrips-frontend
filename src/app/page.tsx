@@ -3,7 +3,7 @@ import { CarCarousel } from "@/components/CarCarousel";
 import { FAQ } from "@/shared/FAQ";
 import OurServices from "@/components/home/services/Services";
 import BrandMarquee from "@/components/home/BrandMarquee";
-
+import { SERVICES_DATA } from "@/constants/home/services";
 const Home = () => {
   return (
     <main>
@@ -16,7 +16,7 @@ const Home = () => {
       />
       <CarCarousel />
       <FAQ />
-      <OurServices />
+      <OurServices data={SERVICES_DATA || []} title="Our Services" align="center" />
       <BrandMarquee />
     </main>
   )

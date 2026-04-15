@@ -22,6 +22,17 @@ export interface HighlightSection {
     image: string;
 }
 
+export interface WhyChooseUsCard {
+    icon: string;
+    title: string;
+    description: string;
+}
+
+export interface WhyChooseUsSection {
+    tagline: string;
+    title: string;
+    cards: WhyChooseUsCard[];
+}
 export type CategoryId =
     | "chauffeur-service"
     | "airport-transportation"
@@ -33,5 +44,14 @@ export interface TransportationCategory {
     hero: HeroSection;
     intro: IntroSection;
     services: Service[];
-    highlight: HighlightSection;
+    highlight?: HighlightSection;
+    whyChooseUs?: WhyChooseUsSection;
+}
+
+export interface TourService {
+    id: number;
+    title: string;
+    image: string;
+    link: string;
+    linkLabel?: string;
 }

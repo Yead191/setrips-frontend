@@ -38,6 +38,36 @@ export const transportationData: TransportationCategory[] = [
                     "Discreet, secure transportation for high-profile clients and VIPs. Our trained drivers prioritize your safety and privacy with vetted routes, armoured vehicle options, and 24/7 coordination.",
             },
         ],
+        whyChooseUs: {
+            tagline: "THE LUXE DRIVE COMMITMENT",
+            title: "Why Choose Our Chauffeur Service?",
+            cards: [
+                {
+                    icon: "shield-check",
+                    title: "Professional Chauffeurs",
+                    description:
+                        "Our drivers are highly trained, licensed professionals committed to providing a safe, punctual, and discreet service for every client.",
+                },
+                {
+                    icon: "sparkles",
+                    title: "Immaculate Vehicles",
+                    description:
+                        "Every vehicle in our fleet is meticulously maintained and cleaned to the highest standards, ensuring a pristine environment for your journey.",
+                },
+                {
+                    icon: "currency-dollar",
+                    title: "Fixed & Transparent Pricing",
+                    description:
+                        "No hidden costs or surprises. Our pricing is clear and fixed from the moment you book, providing complete peace of mind and reliability.",
+                },
+                {
+                    icon: "clock",
+                    title: "24/7 Availability",
+                    description:
+                        "We operate around the clock, 365 days a year. Whether it's a late-night flight or an early morning meeting, we are always ready for you.",
+                },
+            ],
+        },
         highlight: {
             title: "Chauffeur Ground Services",
             description:
@@ -128,12 +158,37 @@ export const transportationData: TransportationCategory[] = [
                     "Group coach hire for sports teams, stadium transfers, and large public events. We handle parking logistics, crowd timing, and multi-stop routing so your group arrives together without the hassle.",
             },
         ],
-        highlight: {
-            title: "Fleet & Ground Operations",
-            description:
-                "Our coach fleet is one of the most modern in London, regularly serviced and inspected to meet DVSA standards. Vehicles range from 8-seat executive minibuses to 72-seat luxury double-deck coaches, giving you the flexibility to match capacity to your exact group size. Our operations team handles all aspects of your journey — route planning, traffic monitoring, driver briefings, and on-the-day coordination. With GPS-tracked vehicles and a 24/7 support line, you always know where your coach is and can reach us instantly if plans change.",
-            image: "/images/coach-ground.jpg",
+        whyChooseUs: {
+            tagline: "THE LUXE DRIVE COMMITMENT",
+            title: "Why Choose Our Bus & Coach Services?",
+            cards: [
+                {
+                    icon: "users",
+                    title: "Flexible Group Capacity",
+                    description:
+                        "From 8-seat minibuses to 72-seat luxury coaches, our diverse fleet scales to your exact group size — ensuring nobody is left behind and no seat goes to waste.",
+                },
+                {
+                    icon: "wifi",
+                    title: "Onboard Comfort & Wi-Fi",
+                    description:
+                        "All coaches are equipped with reclining seats, air conditioning, onboard Wi-Fi, and USB charging points — keeping your group comfortable and connected throughout the journey.",
+                },
+                {
+                    icon: "shield-check",
+                    title: "Safety Certified Fleet",
+                    description:
+                        "Every vehicle undergoes rigorous DVSA inspections and regular maintenance checks. All drivers hold full PCV licences with enhanced DBS clearance for complete passenger safety.",
+                },
+                {
+                    icon: "map-pin",
+                    title: "Multi-Stop Route Planning",
+                    description:
+                        "Our operations team designs efficient, customised routes with multiple pick-up and drop-off points, making group logistics seamless from start to finish.",
+                },
+            ],
         },
+
     },
 
     {

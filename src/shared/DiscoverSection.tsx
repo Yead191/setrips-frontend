@@ -9,7 +9,7 @@ export default function DiscoverSection({ title, data }: { title: string, data: 
     return (
         <div className="container py-10 lg:py-12 ">
             <SectionTitle title={title} align="left" />
-            <div className="relative group  my-12">
+            <div className="relative group  mt-12">
                 <Swiper
                     modules={[Navigation, Pagination]}
                     spaceBetween={30}

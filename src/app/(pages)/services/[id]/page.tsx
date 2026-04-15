@@ -1,6 +1,6 @@
 import { transportationData } from '@/constants/service/our-services';
 import ServiceDetails from '@/features/(web-pages)/services';
-import ServiceNotFound from '@/features/(web-pages)/services/ServiceNotFound';
+import ServiceNotFound from '@/features/(web-pages)/services/sections/ServiceNotFound';
 import OurServices from "@/components/home/services/Services";
 
 export default async function page({ params }: { params: Promise<{ id: string }> }) {
@@ -18,6 +18,6 @@ export default async function page({ params }: { params: Promise<{ id: string }>
     }
 
     return (
-        <ServiceDetails service={service} />
+        <ServiceDetails service={service} id={id} />
     );
 }

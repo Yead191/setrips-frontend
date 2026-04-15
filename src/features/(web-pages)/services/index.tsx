@@ -1,11 +1,16 @@
 import { Banner } from "@/shared/Banner";
 import { TransportationCategory } from "@/types";
-import SectionBlock from "./SectionBlock";
-import ServicesGrid from "./ServicesGrid";
+import SectionBlock from "./sections/SectionBlock";
+import ServicesGrid from "./sections/ServicesGrid";
+import WhyChooseUsSection from "./sections/WhyChooseUsSection";
 import DiscoverSection from "@/shared/DiscoverSection";
 import { CAR_DATA } from "@/constants/car-data";
+import PremiumCTA from "./sections/PremiumCTA";
+import OurServices from "@/components/home/services/Services";
+import { TOUR_SERVICES_DATA } from "@/constants/service/tour-services";
 
-const ServiceDetails = ({ service }: { service: TransportationCategory }) => {
+const ServiceDetails = ({ service, id }: { service: TransportationCategory, id: string }) => {
+
     const section1 = [
         {
             title: service.intro.title,
@@ -14,15 +19,17 @@ const ServiceDetails = ({ service }: { service: TransportationCategory }) => {
         },
 
     ];
-    const section2 = [
+    const section2 = service?.highlight
+        ? [
+            {
+                title: service.highlight.title,
+                description: service.highlight.description,
+                image: service.highlight.image,
+            },
+        ]
+        : []
 
-        {
-            title: service.highlight.title,
-            description: service.highlight.description,
-            image: service.highlight.image,
-        },
-    ];
-
+    const isTour = id === "tour-packages";
     return (
         <div>
             {/* Hero Banner */}
@@ -32,6 +39,9 @@ const ServiceDetails = ({ service }: { service: TransportationCategory }) => {
                 backgroundImage={service.hero.image}
                 showButton={false}
             />
+            {
+                isTour && <OurServices title="Setrips Top City Transfer" align="left" data={TOUR_SERVICES_DATA} />
+            }
 
             {/* Alternating intro / highlight sections */}
             <section className="py-12 lg:py-10 pt-20! lg:pt-24!">
@@ -53,21 +63,34 @@ const ServiceDetails = ({ service }: { service: TransportationCategory }) => {
                 <ServicesGrid services={service.services} />
             )}
             {/* Alternating intro / highlight sections */}
-            <section className="py-12 lg:py-10">
-                <div className="container px-4 lg:px-8 flex flex-col gap-16 lg:gap-28">
-                    {section2.map((section) => (
-                        <SectionBlock
-                            key={section.title}
-                            title={section.title}
-                            description={section.description}
-                            image={section.image}
-                            index={1}
-                        />
-                    ))}
-                </div>
-            </section>
+            {section2?.length ? (
+                <section className="py-12 lg:py-10">
+                    <div className="container px-4 lg:px-8 flex flex-col gap-16 lg:gap-28">
+                        {section2.map((section) => (
+                            <SectionBlock
+                                key={section.title}
+                                title={section.title}
+                                description={section.description}
+                                image={section.image}
+                                index={1}
+                            />
+                        ))}
+                    </div>
+                </section>
+            ) : null}
+            {/* Why Choose Us Section */}
+            {service?.whyChooseUs && (
+                <WhyChooseUsSection
+                    tagline={service.whyChooseUs.tagline}
+                    title={service.whyChooseUs.title}
+                    cards={service.whyChooseUs.cards}
+                />
+            )}
             {/* discover fleet */}
             <DiscoverSection title="Discover Our Fleet" data={CAR_DATA} />
+
+            {/* premium experience */}
+            <PremiumCTA />
         </div>
     );
 };

@@ -7,9 +7,8 @@ import type { SwiperRef } from "swiper/react";
 
 import "swiper/css";
 import "swiper/css/navigation";
-import SectionTitle from "@/shared/SectionTItle";
+import SectionTitle, { Alignment } from "@/shared/SectionTItle";
 import { SERVICE_SWIPER_SETTINGS } from "./SERVICE_SWIPER_SETTINGS";
-import { SERVICES_DATA } from "@/constants/home/services";
 import ServiceCard from "./ServiceCard";
 
 const ChevronLeft: React.FC = () => (
@@ -54,14 +53,20 @@ const navBtnBase =
     "focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#0057A7] focus-visible:outline-offset-2 " +
     "disabled:opacity-30 disabled:pointer-events-none";
 
-const OurServices: React.FC = () => {
+interface OurServicesProps {
+    title?: string;
+    align?: Alignment;
+    data?: any[];
+}
+
+const OurServices: React.FC<OurServicesProps> = ({ title, align, data }) => {
     const swiperRef = useRef<SwiperRef>(null);
 
     return (
         <section className="bg-white py-12 overflow-hidden" aria-labelledby="services-heading">
             <div className="container lg:px-20! 2xl:px-16! relative">
 
-                <SectionTitle title="Our Services" align="center" className="mb-10" />
+                <SectionTitle title={title || "Our Services"} align={align || "center"} className="mb-10" />
 
                 <div className="relative flex items-center">
 
@@ -83,12 +88,13 @@ const OurServices: React.FC = () => {
                         }}
                         className="w-full py-8! -my-8!"
                     >
-                        {SERVICES_DATA.map((service) => (
+                        {data?.map((service) => (
                             <SwiperSlide key={service.id} className="h-auto!">
                                 <ServiceCard
                                     title={service.title}
                                     image={service.image}
                                     link={service.link}
+                                    linkLabel={service?.linkLabel || ""}
                                 />
                             </SwiperSlide>
                         ))}

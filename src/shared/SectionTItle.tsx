@@ -1,6 +1,6 @@
 import React from "react";
 
-type Alignment = "left" | "center" | "right";
+export type Alignment = "left" | "center" | "right";
 
 interface SectionTitleProps {
     title: string;
