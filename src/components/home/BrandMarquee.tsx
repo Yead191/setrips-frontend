@@ -16,10 +16,10 @@ const logosTop = [
 // Small logo card component
 const LogoCard = ({ src }: { src: string }) => {
     return (
-        <div className="mx-20 flex items-center justify-center">
+        <div className="mx-6 md:mx-10 lg:mx-20 flex items-center justify-center">
             <Image
                 src={src}
-                className="w-fit h-[132px] object-contain  hover:grayscale-0 transition cursor-pointer"
+                className="w-fit h-[80px] md:h-[100px] lg:h-[132px] object-contain  hover:grayscale-0 transition cursor-pointer"
                 alt="logo"
                 width={300}
                 height={200}

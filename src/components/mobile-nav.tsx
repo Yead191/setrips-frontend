@@ -31,21 +31,45 @@ export function MobileNav() {
           </SheetTitle>
         </SheetHeader>
         <div className="flex flex-col gap-4 py-8">
-          {NAV_ITEMS.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              onClick={() => setOpen(false)}
-              className={cn(
-                "text-lg font-medium transition-colors hover:text-primary",
-                pathname === item.href
-                  ? "text-primary border-l-4 border-primary pl-2"
-                  : "text-muted-foreground"
-              )}
-            >
-              {item.label}
-            </Link>
-          ))}
+          {NAV_ITEMS.map((item) => {
+            const isActive = pathname === item.href;
+            const isChildActive = item.children?.some(child => pathname === child.href);
+            const isParentActive = isActive || isChildActive;
+            
+            return (
+              <div key={item.href} className="flex flex-col">
+                <Link
+                  href={item.href}
+                  onClick={() => setOpen(false)}
+                  className={cn(
+                    "text-lg font-medium transition-colors hover:text-primary py-1",
+                    isParentActive
+                      ? "text-primary border-l-4 border-primary pl-2"
+                      : "text-muted-foreground"
+                  )}
+                >
+                  {item.label}
+                </Link>
+                {item.children && (
+                  <div className="flex flex-col ml-4 mt-2 mb-2 gap-3 border-l-2 border-muted pl-4">
+                    {item.children.map((child) => (
+                      <Link
+                        key={child.href}
+                        href={child.href}
+                        onClick={() => setOpen(false)}
+                        className={cn(
+                          "text-base transition-colors hover:text-primary",
+                          pathname === child.href ? "text-primary font-medium" : "text-muted-foreground"
+                        )}
+                      >
+                        {child.label}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+            );
+          })}
           <hr className="my-4 border-muted" />
           <AuthModal
             trigger={
