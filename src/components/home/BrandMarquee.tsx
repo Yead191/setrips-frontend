@@ -23,6 +23,7 @@ const LogoCard = ({ src }: { src: string }) => {
                 alt="logo"
                 width={300}
                 height={200}
+                draggable={false}
             />
         </div>
     );

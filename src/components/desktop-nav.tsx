@@ -22,7 +22,7 @@ export function DesktopNav() {
             <Link
               href={item.href}
               className={cn(
-                "flex items-center gap-1 text-[15px] font-medium transition-all hover:text-primary hover:translate-y-[-1px] relative",
+                "flex items-center gap-1 text-[15px] font-medium transition-all hover:text-primary hover:-translate-y-px relative",
                 isParentActive ? "text-primary" : "text-foreground"
               )}
             >

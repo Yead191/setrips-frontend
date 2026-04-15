@@ -35,7 +35,7 @@ export function CarCarousel() {
               prevEl: ".main-prev",
               nextEl: ".main-next",
             }}
-            pagination={{ 
+            pagination={{
               clickable: true,
               el: ".main-pagination",
               bulletClass: "swiper-pagination-bullet !bg-primary",

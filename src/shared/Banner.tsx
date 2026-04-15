@@ -25,8 +25,9 @@ export function Banner({
         <Image
           src={backgroundImage}
           alt={title}
-          fill
-          className="object-cover object-center"
+          width={1600}
+          height={1000}
+          className="object-cover object-center h-full w-full"
           priority
         />
         <div className="absolute inset-0  lg:bg-[#00000066]/40" />
