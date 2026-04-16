@@ -65,7 +65,7 @@ export function CarCard({ car }: CarCardProps) {
       </div>
 
       {/* Content */}
-      <div className="p-6 flex flex-col flex-grow bg-white">
+      <div className="p-6 flex flex-col grow bg-white">
         <div className="mb-4">
           <h3 className="text-xl font-semibold text-gray-900 mb-1">{car.name}</h3>
           <p className="text-sm text-gray-500">{car.description}</p>

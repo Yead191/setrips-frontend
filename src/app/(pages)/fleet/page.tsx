@@ -1,8 +1,8 @@
+import Fleet from "@/features/(web-pages)/fleet"
+
 const FleetPage = () => {
     return (
-        <div>
-            <h1>Fleet</h1>
-        </div>
+        <Fleet />
     )
 }
 
