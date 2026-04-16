@@ -8,6 +8,7 @@ import { CAR_DATA } from "@/constants/car-data";
 import PremiumCTA from "./sections/PremiumCTA";
 import OurServices from "@/components/home/services/Services";
 import { TOUR_SERVICES_DATA } from "@/constants/service/tour-services";
+import TopRoutes from "./sections/TopRoutes";
 
 const ServiceDetails = ({ service, id }: { service: TransportationCategory, id: string }) => {
 
@@ -41,6 +42,9 @@ const ServiceDetails = ({ service, id }: { service: TransportationCategory, id: 
             />
             {
                 isTour && <OurServices title="Setrips Top City Transfer" align="left" data={TOUR_SERVICES_DATA} />
+            }
+            {
+                isTour && <TopRoutes />
             }
 
             {/* Alternating intro / highlight sections */}
