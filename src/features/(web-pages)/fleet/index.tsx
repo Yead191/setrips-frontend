@@ -1,5 +1,6 @@
 import { Banner } from "@/shared/Banner"
 import ChauffeurFleet from "./sections/ChauffeurFleet"
+import FleetCta from "./sections/FleetCta"
 
 const Fleet = () => {
     return (
@@ -12,6 +13,7 @@ meticulously maintained to provide the ultimate in luxury, safety, and comfort f
                 showButton={false}
             />
             <ChauffeurFleet />
+            <FleetCta />
         </section>
     )
 }
