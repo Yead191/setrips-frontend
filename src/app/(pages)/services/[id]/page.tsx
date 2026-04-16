@@ -1,7 +1,7 @@
 import { transportationData } from '@/constants/service/our-services';
 import ServiceDetails from '@/features/(web-pages)/services';
 import ServiceNotFound from '@/features/(web-pages)/services/sections/ServiceNotFound';
-import OurServices from "@/components/home/services/Services";
+import OurServices from "@/features/(web-pages)/home/sections/services/Services";
 
 export default async function page({ params }: { params: Promise<{ id: string }> }) {
     const { id } = await params;

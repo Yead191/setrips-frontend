@@ -65,20 +65,20 @@ export function CarCard({ car }: CarCardProps) {
       </div>
 
       {/* Content */}
-      <div className="p-6 flex flex-col grow bg-white">
-        <div className="mb-4">
+      <div className="p-6 flex flex-col grow bg-white min-h-[420px]">
+        <div className="mb-2">
           <h3 className="text-xl font-semibold text-gray-900 mb-1">{car.name}</h3>
           <p className="text-sm text-gray-500">{car.description}</p>
         </div>
 
-        <div className="mb-6">
+        <div className="mb-2">
           <p className="text-2xl font-bold text-gray-900">
             ${car.pricePerDay}<span className="text-sm font-normal text-gray-400">/Day</span>
           </p>
         </div>
 
         {/* Specs */}
-        <div className="space-y-3 mb-6">
+        <div className="space-y-3 mb-3">
           <div className="flex items-center gap-3 text-sm text-gray-600">
             <Users className="w-4 h-4 text-primary" />
             <span>{car.passengers} Passengers</span>
@@ -90,7 +90,7 @@ export function CarCard({ car }: CarCardProps) {
         </div>
 
         {/* Features */}
-        <div className="border-t border-gray-100 pt-5 mb-6">
+        <div className="border-t border-gray-100 pt-3 mb-6">
           <ul className="grid grid-cols-1 gap-y-2">
             {car.features.map((feature, index) => (
               <li key={index} className="flex items-center gap-2 text-[13px] text-gray-500">
