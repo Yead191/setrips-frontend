@@ -4,11 +4,10 @@ import SectionBlock from "./sections/SectionBlock";
 import ServicesGrid from "./sections/ServicesGrid";
 import WhyChooseUsSection from "./sections/WhyChooseUsSection";
 import DiscoverSection from "@/shared/DiscoverSection";
-import { CAR_DATA } from "@/constants/car-data";
-import PremiumCTA from "./sections/PremiumCTA";
-import OurServices from "@/components/home/services/Services";
+import OurServices from "@/features/(web-pages)/home/sections/services/Services";
 import { TOUR_SERVICES_DATA } from "@/constants/service/tour-services";
 import TopRoutes from "./sections/TopRoutes";
+import ReadyForExperience from "@/shared/ReadyForExperience";
 
 const ServiceDetails = ({ service, id }: { service: TransportationCategory, id: string }) => {
 
@@ -91,10 +90,10 @@ const ServiceDetails = ({ service, id }: { service: TransportationCategory, id: 
                 />
             )}
             {/* discover fleet */}
-            <DiscoverSection title="Discover Our Fleet" data={CAR_DATA} />
+            <DiscoverSection title="Discover Our Fleet" />
 
             {/* premium experience */}
-            <PremiumCTA />
+            <ReadyForExperience />
         </div>
     );
 };

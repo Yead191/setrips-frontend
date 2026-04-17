@@ -9,7 +9,6 @@ const logosTop = [
     "/assets/images/home/brands/brand4.png",
     "/assets/images/home/brands/brand6.png",
     "/assets/images/home/brands/brand7.png",
-
 ];
 
 
@@ -30,7 +29,7 @@ const LogoCard = ({ src }: { src: string }) => {
 };
 export default function BrandMarquee() {
     return (
-        <div className="w-full bg-[#F9F9F9] py-14 my-12">
+        <div className="w-full bg-[#F9F9F9] py-14 mt-8">
             {/* Top Row- left */}
             <Marquee
                 pauseOnHover={true}
