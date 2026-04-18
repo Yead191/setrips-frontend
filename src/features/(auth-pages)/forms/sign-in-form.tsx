@@ -4,6 +4,7 @@ import { Button } from "../../../../ui/button";
 import { Input } from "../../../../ui/input";
 import { Label } from "../../../../ui/label";
 import { Checkbox } from "../../../../ui/checkbox";
+import { useAuth } from "@/lib/hooks/use-auth";
 import { FacebookIcon, GoogleIcon } from "@/components/brands";
 
 interface SignInFormProps {
@@ -11,6 +12,13 @@ interface SignInFormProps {
 }
 
 export function SignInForm({ onSwitch }: SignInFormProps) {
+  const { login } = useAuth();
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    login();
+  };
+
   return (
     <div className="flex flex-col gap-6">
       <div className="flex flex-col gap-2">
@@ -18,7 +26,7 @@ export function SignInForm({ onSwitch }: SignInFormProps) {
         <p className="text-sm text-muted-foreground">Log into your account to continue from where you stopped.</p>
       </div>
 
-      <form className="flex flex-col gap-4" onSubmit={(e) => e.preventDefault()}>
+      <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
         <div className="flex flex-col gap-2">
           <Label htmlFor="signin-email">Email</Label>
           <Input id="signin-email" type="email" placeholder="Enter your email" className="bg-[#eff6ff] border-none h-12" />

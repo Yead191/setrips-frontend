@@ -43,8 +43,8 @@ export const ExtrasSelection = () => {
   };
 
   return (
-    <div className="space-y-6">
-      <h2 className="text-xl font-bold text-gray-900 border-b border-gray-50 pb-4">
+    <div className="space-y-4">
+      <h2 className="text-xl font-medium text-gray-900 ">
         Select extra and accessories
       </h2>
 
@@ -52,18 +52,18 @@ export const ExtrasSelection = () => {
         {extras.map((extra) => (
           <div
             key={extra.id}
-            className="flex items-center justify-between p-6 rounded-2xl border border-gray-100 bg-white hover:border-blue-100 hover:shadow-sm transition-all group"
+            className="flex items-center justify-between p-3 rounded-2xl border border-[#C2BCBC] bg-white hover:border-blue-100 hover:shadow-sm transition-all group"
           >
             <div className="flex items-center gap-6">
               <div className="text-gray-600 bg-gray-50 p-4 rounded-xl group-hover:bg-blue-50 group-hover:text-blue-600 transition-colors">
                 {extra.icon}
               </div>
               <div>
-                <h3 className="text-base font-bold text-gray-900">{extra.name}</h3>
+                <h3 className="text-base  text-[#171717]">{extra.name}</h3>
                 {extra.description ? (
-                   <p className="text-sm font-medium text-gray-500">{extra.description}</p>
+                  <p className="text-sm font-semibold text-[#171717]">{extra.description}</p>
                 ) : (
-                  <p className="text-sm font-bold text-gray-900">{extra.price}</p>
+                  <p className="text-sm font-semibold text-[#171717]">{extra.price}</p>
                 )}
               </div>
             </div>
@@ -76,7 +76,7 @@ export const ExtrasSelection = () => {
               >
                 <Minus size={14} />
               </button>
-              <span className="w-8 text-center font-bold text-gray-900">
+              <span className="w-8 text-center font-semibold text-gray-900">
                 {extra.count}
               </span>
               <button

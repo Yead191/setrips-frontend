@@ -3,8 +3,9 @@
 import Image from "next/image";
 import { Users, Briefcase } from "lucide-react";
 import { Button } from "../../../../../ui/button";
-import { FleetCar } from "../constants";
 import { cn } from "@/lib/utils";
+import { FleetCar } from "@/constants/our-car-data";
+import Link from "next/link";
 
 interface FleetCarCardProps {
   car: FleetCar;
@@ -79,11 +80,11 @@ export function FleetCarCard({ car, isActive = false }: FleetCarCardProps) {
           {!car.tag && <div className="h-6" />} {/* Spacer */}
 
           <div className="w-full space-y-3">
-            <Button
-              className="w-full bg-primary hover:bg-primary/80 text-white h-12 rounded-xl font-normal shadow-md shadow-blue-200/50 transition-all hover:scale-[1.02] active:scale-[0.98]"
-            >
-              View Details
-            </Button>
+            <Link href={`/booking-details/${car.id}`} className=" cursor-pointer">
+              <Button className="w-full bg-primary hover:bg-primary/80 text-white h-12  rounded-xl font-normal shadow-md shadow-blue-200/50 transition-all hover:scale-[1.02] active:scale-[0.98] cursor-pointer">
+                View Details
+              </Button>
+            </Link >
             {car.freeCancellation && (
               <p className="text-xs text-gray-400 text-center md:text-right font-medium">
                 Free cancellation

@@ -6,14 +6,15 @@ import WhyChooseUs from "@/features/(web-pages)/home/sections/WhyChooseUs";
 import LetsTalk from "@/features/(web-pages)/home/sections/LetsTalk";
 import { SERVICES_DATA } from "@/constants/home/services";
 const LandingPage = () => {
+
   return (
     <main>
       <Banner
         title="Discover Our Premium Fleet Service"
         description="Explore our world-class selection of chauffeur-driven vehicles. Each model is meticulously maintained to provide the ultimate in luxury, safety, and comfort for every journey."
-        backgroundImage="/fleet-banner.png"
+        backgroundImage="/landingpage.jpg"
         showButton={true}
-        buttonText="Explore Fleet"
+        isLanding={true}
       />
       <div className="py-20 bg-[#F9F9F9]">
         <div className="flex flex-col gap-2 mb-12 items-center text-center">
