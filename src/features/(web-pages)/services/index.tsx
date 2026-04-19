@@ -47,7 +47,7 @@ const ServiceDetails = ({ service, id }: { service: TransportationCategory, id: 
             }
 
             {/* Alternating intro / highlight sections */}
-            <section className="py-12 lg:py-10 pt-20! lg:pt-24!">
+            <section className="py-2 lg:py-10 pt-20! lg:pt-24!">
                 <div className="container px-4 lg:px-8 flex flex-col gap-16 lg:gap-28">
                     {section1.map((section, index) => (
                         <SectionBlock
