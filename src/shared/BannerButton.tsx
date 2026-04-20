@@ -1,6 +1,8 @@
 "use client"
 import { Button } from "../../ui/button";
 import { usePathname, useRouter } from "next/navigation";
+import { AgentSignupModal } from "@/features/(auth-pages)/components/AgentSignupModal";
+
 const BannerButton = () => {
     const pathname = usePathname();
     const router = useRouter();
@@ -25,15 +27,19 @@ const BannerButton = () => {
 
                     </div>
                 ) : (
-                    <Button
-                        size="lg"
-                        className="mt-4 bg-[#C5A02E] text-white font-bold h-14 px-8 text-lg rounded-md transition-all shadow-xl hover:shadow-primary/20 hover:scale-105 active:scale-95 uppercase"
-                    >
-                        Apply Now
-                    </Button>
+                    <AgentSignupModal
+                        trigger={
+                            <Button
+                                size="lg"
+                                className="bg-[#C5A02E] text-white font-normal h-14 px-8 rounded-md transition-all shadow-xl hover:shadow-primary/20 hover:scale-105 active:scale-95 uppercase"
+                            >
+                                Apply Now
+                            </Button>
+                        }
+                    />
                 )
             }
         </div>
     );
 };
-export default BannerButton;
+export default BannerButton;

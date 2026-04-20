@@ -36,23 +36,32 @@ export function FleetCarCard({ car, isActive = false }: FleetCarCardProps) {
       <div className="grow  flex flex-col md:flex-row gap-6">
         {/* Info - Middle */}
         <div className="grow space-y-4">
-          <div>
-            <h3 className="text-xl md:text-2xl font-medium text-gray-900 mb-2">{car.name}</h3>
-            <div className="flex items-center gap-6 text-sm text-gray-500 font-medium">
-              <div className="flex items-center gap-2">
-                <Users className="w-4 h-4 text-[#4B5563]" />
-                <span>{car.passengers} Passengers</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Briefcase className="w-4 h-4 text-[#4B5563]" />
-                <span>{car.luggage} Luggage</span>
+          <div className="flex items-start justify-between gap-4">
+            <div>
+              <h3 className="text-xl md:text-2xl font-medium text-gray-900 mb-2">{car.name}</h3>
+              <div className="flex items-center gap-6 text-xs md:text-sm text-gray-500 font-medium">
+                <div className="flex items-center gap-2">
+                  <Users className="md:w-4 md:h-4 w-3 h-3 text-[#4B5563]" />
+                  <span>{car.passengers} Passengers</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Briefcase className="md:w-4 md:h-4 w-3 h-3 text-[#4B5563]" />
+                  <span>{car.luggage} Luggage</span>
+                </div>
               </div>
             </div>
+
+            {car.tag && (
+              <span className="md:hidden bg-[#F97316] text-white text-[10px] uppercase font-bold px-3 py-2 rounded-full tracking-wider shadow-sm whitespace-nowrap">
+                {car.tag}
+              </span>
+            )}
           </div>
+
 
           <div className="space-y-1">
             <div className="flex items-baseline gap-3">
-              <span className="text-3xl font-semibold text-gray-900">${car.price}</span>
+              <span className="md:text-3xl text-[22px] font-semibold text-gray-900">${car.price}</span>
               {car.discount && (
                 <span className="text-sm font-semibold text-gray-600 line-through ">
                   $789
@@ -64,7 +73,7 @@ export function FleetCarCard({ car, isActive = false }: FleetCarCardProps) {
                 </span>
               )}
             </div>
-            <p className="text-xs text-[#6B7280] font-medium tracking-wide uppercase">
+            <p className="md:text-xs text-[10px] text-[#6B7280] font-medium tracking-wide uppercase">
               Estimated total fare
             </p>
           </div>
@@ -73,15 +82,16 @@ export function FleetCarCard({ car, isActive = false }: FleetCarCardProps) {
         {/* Actions - Right */}
         <div className="flex flex-col items-center md:items-end justify-between min-w-[160px] gap-4">
           {car.tag && (
-            <span className="bg-[#F97316] text-white text-[10px] uppercase font-bold px-3 py-2 rounded-full tracking-wider shadow-sm">
+            <span className="hidden md:block bg-[#F97316] text-white text-[10px] uppercase font-bold px-3 py-2 rounded-full tracking-wider shadow-sm">
               {car.tag}
             </span>
           )}
+
           {!car.tag && <div className="h-6" />} {/* Spacer */}
 
           <div className="w-full space-y-3">
             <Link href={`/booking-details/${car.id}`} className=" cursor-pointer">
-              <Button className="w-full bg-primary hover:bg-primary/80 text-white h-12  rounded-xl font-normal shadow-md shadow-blue-200/50 transition-all hover:scale-[1.02] active:scale-[0.98] cursor-pointer">
+              <Button className="w-full bg-primary text-white h-12  rounded-xl font-normal shadow-md shadow-blue-200/50 transition-all hover:scale-[1.02] active:scale-[0.98] cursor-pointer">
                 View Details
               </Button>
             </Link >

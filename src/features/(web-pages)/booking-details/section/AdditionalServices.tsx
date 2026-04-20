@@ -8,9 +8,10 @@ const services = [
 export const AdditionalServices = () => {
   return (
     <div className="space-y-4">
-      <h2 className="text-xl font-medium text-gray-900 ">
+      <h2 className="text-lg md:text-xl font-medium text-gray-900 ">
         Additional Services
       </h2>
+
 
       <div className="flex flex-wrap gap-3">
         {services.map((service, index) => (

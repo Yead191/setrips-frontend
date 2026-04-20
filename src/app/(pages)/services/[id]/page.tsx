@@ -7,6 +7,7 @@ export default async function page({ params }: { params: Promise<{ id: string }>
     const { id } = await params;
 
     const service = transportationData.find(item => item.id === id);
+    console.log(id)
 
     if (!service) {
         return (

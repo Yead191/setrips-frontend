@@ -44,7 +44,7 @@ export const ExtrasSelection = () => {
 
   return (
     <div className="space-y-4">
-      <h2 className="text-xl font-medium text-gray-900 ">
+      <h2 className="text-lg md:text-xl font-medium text-gray-900 ">
         Select extra and accessories
       </h2>
 
@@ -54,19 +54,20 @@ export const ExtrasSelection = () => {
             key={extra.id}
             className="flex items-center justify-between p-3 rounded-2xl border border-[#C2BCBC] bg-white hover:border-blue-100 hover:shadow-sm transition-all group"
           >
-            <div className="flex items-center gap-6">
-              <div className="text-gray-600 bg-gray-50 p-4 rounded-xl group-hover:bg-blue-50 group-hover:text-blue-600 transition-colors">
+            <div className="flex items-center gap-3 md:gap-6">
+              <div className="text-gray-600 bg-gray-50 p-3 md:p-4 rounded-xl group-hover:bg-blue-50 group-hover:text-blue-600 transition-colors">
                 {extra.icon}
               </div>
               <div>
-                <h3 className="text-base  text-[#171717]">{extra.name}</h3>
+                <h3 className="text-sm md:text-base text-[#171717]">{extra.name}</h3>
                 {extra.description ? (
-                  <p className="text-sm font-semibold text-[#171717]">{extra.description}</p>
+                  <p className="text-xs md:text-sm font-semibold text-[#171717]">{extra.description}</p>
                 ) : (
-                  <p className="text-sm font-semibold text-[#171717]">{extra.price}</p>
+                  <p className="text-xs md:text-sm font-semibold text-[#171717]">{extra.price}</p>
                 )}
               </div>
             </div>
+
 
             <div className="flex items-center gap-4 bg-gray-50 p-1.5 rounded-xl border border-gray-100">
               <button

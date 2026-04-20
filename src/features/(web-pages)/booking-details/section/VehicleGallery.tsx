@@ -16,7 +16,7 @@ export const VehicleGallery = () => {
   return (
     <div className="space-y-6">
       {/* Main Image */}
-      <div className="relative min-h-[350px] w-full rounded-2xl overflow-hidden border border-gray-100 shadow-inner bg-gray-50">
+      <div className="relative min-h-[220px] md:min-h-[350px] w-full rounded-2xl overflow-hidden border border-gray-100 shadow-inner bg-gray-50">
         <Image
           src={images[activeImage]}
           alt="Premium Sedan"
@@ -26,13 +26,14 @@ export const VehicleGallery = () => {
         />
       </div>
 
+
       {/* Thumbnails */}
-      <div className="grid grid-cols-5 gap-4">
+      <div className="grid grid-cols-5 md:gap-4 gap-2">
         {images.map((img, index) => (
           <button
             key={index}
             onClick={() => setActiveImage(index)}
-            className={`relative h-[100px] rounded-xl overflow-hidden border-2 transition-all ${activeImage === index
+            className={`relative md:h-[100px] h-[50px] rounded-xl overflow-hidden border-2 transition-all ${activeImage === index
               ? "border-blue-600 ring-2 ring-blue-100"
               : "border-transparent opacity-70 hover:opacity-100"
               }`}

@@ -2,7 +2,8 @@ import Image from "next/image";
 
 export const DriverDetails = () => {
   return (
-    <div className="bg-white rounded-[24px] p-5 border border-gray-100 shadow-sm space-y-6">
+    <div className="bg-white rounded-[24px] p-4 md:p-5 border border-gray-100 shadow-sm space-y-6">
+
       <h3 className="text-lg font-medium text-gray-900 leading-none">Driver Details</h3>
 
       <div className="flex items-center gap-4">

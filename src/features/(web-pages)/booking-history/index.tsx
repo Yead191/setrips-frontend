@@ -69,18 +69,19 @@ const BookingHistory = () => {
   const [activeTab, setActiveTab] = useState("upcoming");
 
   return (
-    <section className="min-h-screen py-12 md:py-10">
+    <section className="min-h-screen py-6 md:py-10">
       <div className="container  mx-auto px-4 md:px-6">
 
         {/* Header */}
-        <div className="mb-6 space-y-1">
-          <h1 className="text-3xl font-medium text-[#111827]">
+        <div className="mb-4 md:mb-6 space-y-1">
+          <h1 className="text-2xl md:text-3xl font-medium text-[#111827]">
             Booking History
           </h1>
-          <p className="text-[#4B5563] ">
+          <p className="text-sm md:text-base text-[#4B5563] ">
             View and manage all your ride bookings
           </p>
         </div>
+
 
         {/* Filters Box */}
         <div className="bg-white p-4 md:p-6 rounded-md border border-gray-100 shadow-sm mb-8">

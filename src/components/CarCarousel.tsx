@@ -3,7 +3,7 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { CarCard } from "./CarCard";
+import { CarCard } from "../shared/CarCard";
 import { CAR_DATA } from "@/constants/car-data";
 
 import "swiper/css";

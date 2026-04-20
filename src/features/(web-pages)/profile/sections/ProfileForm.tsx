@@ -18,7 +18,7 @@ export const ProfileForm = () => {
   return (
     <div className="space-y-5 w-full max-w-[600px]">
       <div className="text-center space-y-1">
-        <h2 className="text-2xl font-medium text-[#001D4A]">Profile Information</h2>
+        <h2 className="text-xl md:text-2xl font-medium text-[#001D4A]">Profile Information</h2>
       </div>
 
       <form className="space-y-3">

@@ -11,12 +11,14 @@ import { cn } from "@/lib/utils";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import { useRouter } from "next/navigation";
 
 interface CarCardProps {
   car: Car;
 }
 
 export function CarCard({ car }: CarCardProps) {
+  const router = useRouter();
   return (
     <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden group hover:shadow-xl transition-all duration-300 flex flex-col h-full">
       {/* Image Carousel */}
@@ -103,7 +105,7 @@ export function CarCard({ car }: CarCardProps) {
 
         {/* Actions */}
         <div className="grid grid-cols-2 gap-3 mt-auto">
-          <Button variant="outline" className="w-full rounded-lg h-11 border-primary text-primary hover:bg-primary/5">
+          <Button onClick={() => router.push(`/booking-history/${car.id}`)} variant="outline" className="w-full rounded-lg h-11 border-primary text-primary hover:bg-primary/5">
             VIEW DETAILS
           </Button>
           <Button className="w-full rounded-lg h-11 bg-primary text-white shadow-md">

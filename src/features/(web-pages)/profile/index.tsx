@@ -1,7 +1,7 @@
 "use client";
 
-import { ProfileAvatar } from "./components/ProfileAvatar";
-import { ProfileForm } from "./components/ProfileForm";
+import { ProfileAvatar } from "./sections/ProfileAvatar";
+import { ProfileForm } from "./sections/ProfileForm";
 
 const ProfileFeature = () => {
   return (

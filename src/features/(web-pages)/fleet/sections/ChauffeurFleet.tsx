@@ -7,7 +7,7 @@ import {
     PaginationNext,
     PaginationPrevious,
 } from "@/components/ui/pagination"
-import { CarCard } from "@/components/CarCard";
+import { CarCard } from "@/shared/CarCard";
 import { cars } from "@/constants/fleet/car-data";
 import SectionTitle from "@/shared/SectionTItle";
 

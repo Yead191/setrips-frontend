@@ -1,7 +1,8 @@
 
 export const PaymentStatus = () => {
   return (
-    <div className="bg-white rounded-[24px] p-5 border border-gray-100 shadow-sm space-y-4">
+    <div className="bg-white rounded-[24px] p-4 md:p-5 border border-gray-100 shadow-sm space-y-4">
+
       <h3 className="text-lg font-medium text-gray-900 leading-none">Payment Status</h3>
 
       <div className="space-y-1.5 pt-0">

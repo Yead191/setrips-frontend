@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 import { useState } from "react";
+import { cn } from "@/lib/utils";
 
 export const BookingFilters = () => {
   const [range, setRange] = useState("All Time");
@@ -29,8 +30,8 @@ export const BookingFilters = () => {
       <div className="relative w-full md:flex-1">
         <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
         <Input
-          placeholder="Search by booking ID, location, or driver name..."
-          className="pl-10 h-12 bg-white border-gray-200 rounded-xl shadow-sm"
+          placeholder="Search bookings..."
+          className="pl-10 h-12 bg-white border-gray-200 rounded-xl shadow-sm text-sm"
         />
       </div>
 
@@ -39,7 +40,7 @@ export const BookingFilters = () => {
         <DropdownMenuTrigger asChild>
           <Button
             variant="outline"
-            className="w-full md:w-[500px] h-12 px-6 bg-white border-gray-200 rounded-xl flex items-center justify-between gap-4 text-gray-600 hover:bg-gray-50 shadow-sm"
+            className="w-full md:w-[300px] h-12 px-4 bg-white border-gray-200 rounded-xl flex items-center justify-between gap-2 text-sm text-gray-600 hover:bg-gray-50 shadow-sm transition-all"
           >
             <div className="flex items-center gap-2">
               <Calendar className="w-4 h-4 text-[#C5A02E]" />
@@ -49,13 +50,15 @@ export const BookingFilters = () => {
           </Button>
         </DropdownMenuTrigger>
 
-        <DropdownMenuContent className="w-56 md:w-[500px] bg-white border border-gray-200">
+        <DropdownMenuContent className="w-(--radix-dropdown-menu-trigger-width) md:w-56 bg-white border border-gray-200">
           {options.map((item) => (
             <DropdownMenuItem
               key={item}
               onClick={() => setRange(item)}
-              className={`cursor-pointer ${range === item ? "bg-primary/5 text-primary font-medium" : ""
-                }`}
+              className={cn(
+                "cursor-pointer text-sm px-4 py-2.5",
+                range === item ? "bg-primary/5 text-primary font-medium" : ""
+              )}
             >
               {item}
             </DropdownMenuItem>
@@ -63,5 +66,6 @@ export const BookingFilters = () => {
         </DropdownMenuContent>
       </DropdownMenu>
     </div>
+
   );
 };

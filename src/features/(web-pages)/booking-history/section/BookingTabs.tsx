@@ -15,7 +15,8 @@ interface BookingTabsProps {
 
 export const BookingTabs = ({ activeTab, onTabChange }: BookingTabsProps) => {
   return (
-    <div className="flex items-center gap-8 border-b border-gray-100 px-2 lg:px-4 mt-6">
+    <div className="flex items-center gap-4 md:gap-8 border-b border-gray-100 px-1 md:px-4 mt-6 overflow-x-auto no-scrollbar whitespace-nowrap">
+
       {tabs.map((tab) => (
         <button
           key={tab.id}

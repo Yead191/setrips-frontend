@@ -11,11 +11,12 @@ import { TripActions } from "./sections/TripActions";
 
 const TripDetails = () => {
   return (
-    <section className="bg-[#F9FAFB] min-h-screen py-10">
+    <section className="bg-[#F9FAFB] min-h-screen py-6 md:py-10">
       <div className="container max-w-[1240px] mx-auto px-4 md:px-6">
 
         {/* Breadcrumbs */}
-        <nav className="flex items-center gap-2 mb-6 text-sm font-medium">
+        <nav className="flex items-center gap-2 mb-4 md:mb-6 text-sm font-medium">
+
           <Link href="/booking-history" className="text-gray-400 hover:text-primary transition-colors">
             Bookings
           </Link>
