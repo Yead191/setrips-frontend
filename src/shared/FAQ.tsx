@@ -29,7 +29,7 @@ export function FAQ() {
                 priority
               />
             </div>
-            
+
             {/* Background Decorative Element */}
             <div className="absolute -z-10 -top-4 -left-4 w-24 h-24 bg-[#C5A02E]/10 rounded-full blur-2xl" />
           </div>
@@ -54,8 +54,8 @@ export function FAQ() {
                     key={`faq-item-${index}`}
                     className={cn(
                       "group border rounded-xl transition-all duration-300 overflow-hidden",
-                      isOpen 
-                        ? "border-gray-200 bg-[#f9f9f9]" 
+                      isOpen
+                        ? "border-gray-200 bg-[#f9f9f9]"
                         : "border-gray-100 bg-white hover:border-gray-200"
                     )}
                   >
@@ -70,7 +70,7 @@ export function FAQ() {
                         {item.question}
                       </span>
                       <ChevronDown className={cn(
-                        "w-4 h-4 md:w-5 md:h-5 transition-transform duration-300 flex-shrink-0",
+                        "w-4 h-4 md:w-5 md:h-5 transition-transform duration-300 shrink-0",
                         isOpen ? "rotate-180 text-primary" : "text-gray-400"
                       )} />
                     </button>

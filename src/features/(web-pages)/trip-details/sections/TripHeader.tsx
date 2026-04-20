@@ -5,7 +5,7 @@ export const TripHeader = () => {
   return (
     <div className="bg-white rounded-[24px] p-4 border border-gray-100 shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-4 md:gap-6">
       <div className="flex items-center gap-4 md:gap-6">
-        <div className="relative w-16 h-12 md:w-20 md:h-16 rounded-xl overflow-hidden bg-gray-50 border border-gray-100 flex-shrink-0">
+        <div className="relative w-16 h-12 md:w-20 md:h-16 rounded-xl overflow-hidden bg-gray-50 border border-gray-100 shrink-0">
           <Image
             src="/fleet-banner.png"
             alt="Car"

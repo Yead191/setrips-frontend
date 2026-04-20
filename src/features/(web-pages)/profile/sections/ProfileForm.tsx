@@ -75,7 +75,7 @@ export const ProfileForm = () => {
                   <ChevronDown className="w-5 h-5 text-gray-400" />
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-[var(--radix-dropdown-menu-trigger-width)] bg-white border border-gray-100 shadow-xl rounded-xl p-1">
+              <DropdownMenuContent className="w-(--radix-dropdown-menu-trigger-width) bg-white border border-gray-100 shadow-xl rounded-xl p-1">
                 <DropdownMenuItem
                   onClick={() => setGender("Male")}
                   className="rounded-lg h-10 cursor-pointer focus:bg-primary/5 focus:text-primary transition-colors"

@@ -45,7 +45,7 @@ export const BookingCard = ({ booking }: BookingCardProps) => {
         {/* Header Section */}
         <div className="flex items-start justify-between gap-4">
           <div className="flex items-center gap-3 md:gap-4 font-normal">
-            <div className="relative w-12 h-12 md:w-16 md:h-16 rounded-xl overflow-hidden bg-gray-50 border border-gray-100 flex-shrink-0">
+            <div className="relative w-12 h-12 md:w-16 md:h-16 rounded-xl overflow-hidden bg-gray-50 border border-gray-100 shrink-0">
               <Image
                 src={booking.carImage}
                 alt={booking.carName}
