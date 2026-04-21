@@ -9,7 +9,7 @@ export function OurCarSidebar() {
   return (
     <div className="w-full h-full flex flex-col gap-6 overflow-y-auto pb-10">
       {/* Map Thumbnail */}
-      <div className="relative w-full min-h-[200px] bg-red-300 rounded-2xl overflow-hidden shadow-sm border border-gray-100">
+      <div className="relative w-full min-h-[200px]  rounded-2xl overflow-hidden shadow-sm border border-gray-100">
         <iframe
           width="100%"
           height="100%"

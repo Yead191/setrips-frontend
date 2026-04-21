@@ -7,11 +7,12 @@ const services = [
 
 export const AdditionalServices = () => {
   return (
-    <div className="space-y-6">
-      <h2 className="text-xl font-bold text-gray-900 border-b border-gray-50 pb-4">
+    <div className="space-y-4">
+      <h2 className="text-lg md:text-xl font-medium text-gray-900 ">
         Additional Services
       </h2>
-      
+
+
       <div className="flex flex-wrap gap-3">
         {services.map((service, index) => (
           <span

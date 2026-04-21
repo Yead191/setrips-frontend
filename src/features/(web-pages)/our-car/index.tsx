@@ -1,11 +1,11 @@
 "use client";
 import { useState } from "react";
-import { OurCarSidebar } from "./components/OurCarSidebar";
-import { FleetCarCard } from "./components/FleetCarCard";
-import { FilterModal } from "./components/FilterModal";
-import { FLEET_CARS } from "./constants";
+import { OurCarSidebar } from "./section/OurCarSidebar";
+import { FleetCarCard } from "./section/FleetCarCard";
+import { FilterModal } from "./section/FilterModal";
 import { SlidersHorizontal } from "lucide-react";
 import { Button } from "../../../../ui/button";
+import { FLEET_CARS } from "@/constants/our-car-data";
 const OurCarFeature = () => {
     const [activeCar, setActiveCar] = useState<string | null>(null);
     return (
@@ -18,7 +18,7 @@ const OurCarFeature = () => {
             <main className="grow flex flex-col h-full overflow-hidden">
                 {/* Top Header / Search Area */}
                 <header className="bg-white border-b border-gray-100 shrink-0">
-                    <div className="px-4 lg:px-10 py-6 flex flex-col md:flex-row md:items-center justify-between gap-6">
+                    <div className="px-4 py-6 flex flex-col md:flex-row md:items-center justify-between gap-6">
                         <div className="space-y-1">
                             <h1 className="text-2xl md:text-3xl font-medium text-gray-900">
                                 Available Rides
@@ -39,8 +39,8 @@ const OurCarFeature = () => {
                     </div>
                 </header>
                 {/* Car List - Scrollable */}
-                <section className="grow overflow-y-auto px-4 lg:px-10 py-8 scroll-smooth scrollbar-thin scrollbar-track-transparent scrollbar-thumb-gray-200">
-                    <div className="max-w-[1100px] mx-auto space-y-6">
+                <section className="grow overflow-y-auto px-4 py-4 ">
+                    <div className=" mx-auto space-y-6">
                         {FLEET_CARS.map((car) => (
                             <div
                                 key={car.id}
@@ -59,15 +59,7 @@ const OurCarFeature = () => {
                     <div className="h-20 lg:hidden" />
                 </section>
             </main>
-            <style jsx global>{`
-        .scrollbar-hide::-webkit-scrollbar {
-          display: none;
-        }
-        .scrollbar-hide {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-        }
-      `}</style>
+
         </div>
     );
 };

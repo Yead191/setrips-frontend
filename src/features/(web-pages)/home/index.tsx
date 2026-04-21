@@ -17,7 +17,6 @@ meticulously maintained to provide the ultimate in luxury, safety, and comfort f
 every journey."
                 backgroundImage="/fleet-banner.png"
                 showButton={false}
-                buttonText="Explore Fleet"
             />
             <div className="py-20 bg-[#F9F9F9]">
                 <div className="container mx-auto px-4">

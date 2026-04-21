@@ -1,8 +1,8 @@
+import Contact from "@/features/(web-pages)/contact";
+
 const ContactPage = () => {
     return (
-        <div>
-            <h1>Contact</h1>
-        </div>
+        <Contact />
     )
 }
 

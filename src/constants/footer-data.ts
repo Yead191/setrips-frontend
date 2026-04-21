@@ -4,19 +4,19 @@ export const FOOTER_SECTIONS = [
   {
     title: "Pages",
     links: [
-      { label: "Our Services", href: "/services" },
+
       { label: "Our Fleet", href: "/fleet" },
-      { label: "For Chauffeurs", href: "/chauffeur" },
-      { label: "For Business", href: "/business" },
-      { label: "Tour Packages", href: "/tours" },
-      { label: "Corporate Booking", href: "/corporate" },
+      { label: "For Chauffeurs", href: "/services/chauffeur-service" },
+      { label: "Airport Transportation", href: "/services/airport-transportation" },
+      { label: "Tour Packages", href: "/services/tour-packages" },
+      { label: "Bus & Coach", href: "/services/bus-coaches" },
     ],
   },
   {
     title: "Support",
     links: [
       { label: "Contact", href: "/contact" },
-      { label: "FAQ", href: "/faq" },
+
       { label: "Privacy Policy", href: "/privacy" },
       { label: "Terms & Conditions", href: "/terms" },
     ],
