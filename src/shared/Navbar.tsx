@@ -22,7 +22,7 @@ export default function Navbar() {
                         width={140}
                         height={60}
                         className="h-auto w-[140px]"
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    // sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
 
                     />
                 </Link>
