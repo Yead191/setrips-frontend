@@ -41,7 +41,7 @@ export function MobileNav() {
                   width={120}
                   height={50}
                   className="h-auto w-[120px]"
-                  priority
+
                 />
               </Link>
             </SheetTitle>
@@ -52,7 +52,7 @@ export function MobileNav() {
               const isActive = pathname === item.href;
               const isChildActive = item.children?.some(child => pathname === child.href);
               const isParentActive = isActive || isChildActive;
-              
+
               return (
                 <div key={item.href} className="flex flex-col">
                   <Link
@@ -92,7 +92,7 @@ export function MobileNav() {
               {isLoggedIn ? (
                 <div className="space-y-3">
                   {/* Profile Toggle Header */}
-                  <button 
+                  <button
                     onClick={() => setProfileOpen(!profileOpen)}
                     className="w-full flex items-center justify-between p-2 rounded-xl hover:bg-gray-50 transition-all border border-gray-50 bg-white"
                   >
@@ -158,8 +158,8 @@ export function MobileNav() {
 }
 
 const ProfileLink = ({ href, icon, label, onClick }: { href: string; icon: React.ReactNode; label: string; onClick: () => void }) => (
-  <Link 
-    href={href} 
+  <Link
+    href={href}
     onClick={onClick}
     className="flex items-center gap-3 px-4 py-2.5 text-xs font-medium text-gray-700 hover:bg-white hover:text-primary transition-all rounded-lg mx-1"
   >
