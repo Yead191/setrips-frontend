@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 interface ServiceCardProps {
@@ -14,7 +15,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
     linkLabel = "Learn More.",
 }) => {
     return (
-        <div className="group bg-white border border-gray-200 p-[10px] flex flex-col h-full transition-all duration-300 hover:shadow-lg cursor-pointer">
+        <Link href={link} className="group bg-white border border-gray-200 p-[10px] flex flex-col h-full transition-all duration-300 hover:shadow-lg cursor-pointer">
 
             {/* Image */}
             <div className="w-full aspect-[1.15] overflow-hidden shrink-0">
@@ -32,16 +33,14 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
                     {title}
                 </h3>
 
-                <a
-                    href={link}
+                <p
                     className="self-start text-[13px] text-gray-500 underline underline-offset-[3px] decoration-gray-300 tracking-wide transition-colors duration-200 hover:text-[#c9a84c] hover:decoration-[#c9a84c]"
                 >
                     {linkLabel}
-                </a>
+                </p>
             </div>
 
-        </div>
-    );
+        </Link >);
 };
 
 export default ServiceCard;
