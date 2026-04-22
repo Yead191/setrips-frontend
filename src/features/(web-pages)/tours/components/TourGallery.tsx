@@ -129,13 +129,13 @@ const TourGallery = ({ media }: TourGalleryProps) => {
         {/* Navigation Arrows */}
         {mediaList.length > 1 && (
           <>
-            <button 
+            <button
               onClick={handlePrev}
               className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/30 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-black/50 transition-colors opacity-0 group-hover:opacity-100 z-10"
             >
               <ChevronLeft className="w-6 h-6" />
             </button>
-            <button 
+            <button
               onClick={handleNext}
               className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/30 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-black/50 transition-colors opacity-0 group-hover:opacity-100 z-10"
             >

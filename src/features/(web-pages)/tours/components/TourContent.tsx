@@ -40,14 +40,14 @@ const TourContent = ({ tour }: TourContentProps) => {
       </div>
 
       {/* Tabs */}
-      <div className="flex overflow-x-auto border-b border-border hide-scrollbar">
+      <div className="flex overflow-x-auto border-b border-border mobile-tab">
         {TABS.map((tab) => (
           <button
             key={tab.id}
             onClick={() => setActiveTab(tab.id)}
             className={`px-6 py-4 text-sm font-bold tracking-wider whitespace-nowrap transition-colors ${activeTab === tab.id
-                ? 'text-primary border-b-2 border-primary'
-                : 'text-muted-foreground hover:text-foreground'
+              ? 'text-primary border-b-2 border-primary'
+              : 'text-muted-foreground hover:text-foreground'
               }`}
           >
             {tab.label}
@@ -137,8 +137,8 @@ const TourContent = ({ tour }: TourContentProps) => {
             <div
               key={idx}
               className={`p-4 rounded-lg flex gap-3 ${notice.type === 'warning' ? 'bg-orange-100 text-orange-900 border border-orange-200' :
-                  notice.type === 'closure' ? 'bg-red-50 text-red-900 border border-red-200' :
-                    'bg-blue-50 text-blue-900 border border-blue-200'
+                notice.type === 'closure' ? 'bg-red-50 text-red-900 border border-red-200' :
+                  'bg-blue-50 text-blue-900 border border-blue-200'
                 }`}
             >
               {notice.type === 'warning' || notice.type === 'closure' ? (

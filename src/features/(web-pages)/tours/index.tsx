@@ -4,6 +4,7 @@ import TourContent from './components/TourContent';
 import TourSidebar from './components/TourSidebar';
 import { ChevronRight } from 'lucide-react';
 import Link from 'next/link';
+import SectionTitle from '@/shared/SectionTItle';
 
 const TourDetails = ({ service }: { service: string }) => {
     const tour = DEMO_TOUR_DATA;
@@ -24,7 +25,8 @@ const TourDetails = ({ service }: { service: string }) => {
                 <div className="container mx-auto flex items-center text-sm text-muted-foreground">
                     <Link href="/" className="hover:text-primary transition-colors">Home</Link>
                     <ChevronRight className="w-4 h-4 mx-2" />
-                    <Link href="/services/tour-packages" className="hover:text-primary transition-colors">Tours</Link>
+                    <Link href="/
+                    tour-packages" className="hover:text-primary transition-colors">Tours</Link>
                     <ChevronRight className="w-4 h-4 mx-2" />
                     <span className="text-foreground font-medium truncate max-w-[200px] md:max-w-none">
                         {tour.meta.short_title || tour.meta.title}
@@ -35,9 +37,7 @@ const TourDetails = ({ service }: { service: string }) => {
             <main className="container mx-auto">
                 {/* Header */}
                 <div className="mb-8">
-                    <h1 className="text-3xl md:text-4xl lg:text-5xl text-[#055E6E] font-bold uppercase tracking-tight mb-3">
-                        {tour.meta.title}
-                    </h1>
+                    <SectionTitle title={tour?.meta?.title} align='left' className='mb-8' />
                     <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
                         <span className="bg-primary/10 text-primary px-3 py-1 rounded-full font-medium">
                             Activity code: {tour.id.split('-').pop()}
