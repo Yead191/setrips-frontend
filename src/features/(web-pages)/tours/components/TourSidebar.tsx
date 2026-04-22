@@ -1,7 +1,8 @@
 "use client"
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { DetailedTour, TourTicketTier } from '@/types/tour';
-import { Minus, Plus, Calendar as CalendarIcon, Info } from 'lucide-react';
+import { Minus, Plus, Calendar as CalendarIcon, Info, ChevronLeft, ChevronRight, } from 'lucide-react';
+import { format, addMonths, subMonths, isSameDay, isBefore, startOfMonth, endOfMonth, startOfWeek, endOfWeek, eachDayOfInterval, addDays } from 'date-fns';
 
 interface TourSidebarProps {
   tour: DetailedTour;
@@ -17,6 +18,34 @@ const TourSidebar = ({ tour }: TourSidebarProps) => {
     senior: 0,
     student: 0,
   });
+
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const tomorrow = addDays(today, 1);
+
+  const [selectedDate, setSelectedDate] = useState<Date | null>(today);
+  const [calendarOpen, setCalendarOpen] = useState(false);
+  const [currentMonth, setCurrentMonth] = useState(startOfMonth(today));
+
+  // Mock availability check
+  const [availability] = useState<Record<string, { available: boolean }>>({
+    [format(today, 'yyyy-MM-dd')]: { available: false }
+  });
+
+  const checkAvailability = (date: Date) => {
+    const key = format(date, 'yyyy-MM-dd');
+    if (availability[key]) return availability[key];
+    return { available: true };
+  };
+
+  const isTodaySoldOut = !checkAvailability(today).available;
+  const isTomorrowSoldOut = !checkAvailability(tomorrow).available;
+
+  const handleDateSelect = (date: Date) => {
+    if (checkAvailability(date).available) {
+      setSelectedDate(date);
+    }
+  };
 
   const activeTierObj = tour.ticket_tiers.find(t => t.id === selectedTier) as TourTicketTier;
 
@@ -143,61 +172,147 @@ const TourSidebar = ({ tour }: TourSidebarProps) => {
         <div className="mb-6">
           <p className="text-sm text-muted-foreground mb-2">Select Date</p>
           <div className="grid grid-cols-3 gap-2">
-            <div className="border border-border rounded p-2 text-center text-muted-foreground bg-muted/50 cursor-not-allowed">
-              <div className="text-xl font-bold">21</div>
-              <div className="text-xs">Today</div>
-              <div className="text-[10px] uppercase mt-1">Sold Out</div>
+            {/* Today */}
+            <div
+              onClick={() => !isTodaySoldOut && handleDateSelect(today)}
+              className={`rounded p-2 text-center transition-all ${isTodaySoldOut
+                ? 'border border-border text-muted-foreground bg-muted/50 cursor-not-allowed'
+                : isSameDay(selectedDate || new Date(0), today)
+                  ? 'border-2 border-primary bg-primary/5 cursor-pointer'
+                  : 'border border-border cursor-pointer hover:border-primary/50 text-foreground'
+                }`}
+            >
+              <div className={`text-xl font-bold ${!isTodaySoldOut && isSameDay(selectedDate || new Date(0), today) ? 'text-primary' : ''}`}>
+                {format(today, 'd')}
+              </div>
+              <div className={`text-xs ${!isTodaySoldOut && isSameDay(selectedDate || new Date(0), today) ? 'text-primary' : ''}`}>Today</div>
+              {isTodaySoldOut ? (
+                <div className="text-[10px] uppercase mt-1">Sold Out</div>
+              ) : (
+                <div className="text-[10px] font-medium mt-1">£{(totalPrice || 0).toFixed(2)}</div>
+              )}
             </div>
-            <div className="border-2 border-primary bg-primary/5 rounded p-2 text-center cursor-pointer">
-              <div className="text-xl font-bold text-primary">22</div>
-              <div className="text-xs text-primary">Tomorrow</div>
-              <div className="text-[10px] font-medium mt-1">£{(totalPrice || 77.28).toFixed(2)}</div>
+
+            {/* Tomorrow */}
+            <div
+              onClick={() => !isTomorrowSoldOut && handleDateSelect(tomorrow)}
+              className={`rounded p-2 text-center transition-all ${isTomorrowSoldOut
+                ? 'border border-border text-muted-foreground bg-muted/50 cursor-not-allowed'
+                : isSameDay(selectedDate || new Date(0), tomorrow)
+                  ? 'border-2 border-primary bg-primary/5 cursor-pointer'
+                  : 'border border-border cursor-pointer hover:border-primary/50 text-foreground'
+                }`}
+            >
+              <div className={`text-xl font-bold ${!isTomorrowSoldOut && isSameDay(selectedDate || new Date(0), tomorrow) ? 'text-primary' : ''}`}>
+                {format(tomorrow, 'd')}
+              </div>
+              <div className={`text-xs ${!isTomorrowSoldOut && isSameDay(selectedDate || new Date(0), tomorrow) ? 'text-primary' : ''}`}>Tomorrow</div>
+              {isTomorrowSoldOut ? (
+                <div className="text-[10px] uppercase mt-1">Sold Out</div>
+              ) : (
+                <div className="text-[10px] font-medium mt-1">£{(totalPrice || 77.28).toFixed(2)}</div>
+              )}
             </div>
-            <div className="border border-border rounded p-2 text-center flex flex-col items-center justify-center cursor-pointer hover:border-primary/50 transition-colors">
-              <CalendarIcon className="w-5 h-5 text-muted-foreground mb-1" />
-              <div className="text-xs mt-1 text-muted-foreground">Other Dates</div>
+
+            {/* Other Dates View Toggle */}
+            <div
+              onClick={() => setCalendarOpen(!calendarOpen)}
+              className={`border rounded p-2 text-center flex flex-col items-center justify-center cursor-pointer transition-colors ${calendarOpen ? 'border-primary' : 'border-border hover:border-primary/50'
+                }`}
+            >
+              <CalendarIcon className={`w-5 h-5 mb-1 ${calendarOpen ? 'text-primary' : 'text-muted-foreground'}`} />
+              <div className={`text-xs mt-1 ${calendarOpen ? 'text-primary' : 'text-muted-foreground'}`}>Other Dates</div>
             </div>
           </div>
+
+          {/* Calendar View */}
+          {calendarOpen && (
+            <div className="mt-4 animate-in fade-in slide-in-from-top-2 duration-200">
+              <div className="flex justify-between items-center mb-4 px-2">
+                <button
+                  onClick={() => setCurrentMonth(subMonths(currentMonth, 1))}
+                  disabled={isBefore(currentMonth, startOfMonth(today))}
+                  className="p-1 rounded hover:bg-muted disabled:opacity-50 disabled:cursor-not-allowed text-foreground"
+                >
+                  <ChevronLeft className="w-5 h-5" />
+                </button>
+                <div className="font-bold text-foreground">{format(currentMonth, 'MMMM yyyy')}</div>
+                <button
+                  onClick={() => setCurrentMonth(addMonths(currentMonth, 1))}
+                  className="p-1 rounded hover:bg-muted text-foreground"
+                >
+                  <ChevronRight className="w-5 h-5" />
+                </button>
+              </div>
+
+              <div className="grid grid-cols-7 gap-1 text-center mb-2">
+                {['SU', 'MO', 'TU', 'WE', 'TH', 'FR', 'SA'].map(day => (
+                  <div key={day} className="text-[10px] font-medium text-muted-foreground/70 uppercase tracking-wider">{day}</div>
+                ))}
+              </div>
+
+              <div className="grid grid-cols-7 gap-1">
+                {eachDayOfInterval({
+                  start: startOfWeek(startOfMonth(currentMonth)),
+                  end: endOfWeek(endOfMonth(currentMonth))
+                }).map((day, i) => {
+                  const isPast = isBefore(day, today);
+                  const isCurMonth = day.getMonth() === currentMonth.getMonth();
+                  const isSelected = selectedDate && isSameDay(day, selectedDate);
+                  const isSoldOut = !checkAvailability(day).available;
+                  const isUnavailable = isPast || isSoldOut;
+
+                  if (!isCurMonth) {
+                    return <div key={i} className="p-2"></div>;
+                  }
+
+                  return (
+                    <div
+                      key={i}
+                      onClick={() => !isUnavailable && handleDateSelect(day)}
+                      className={`relative flex flex-col items-center justify-center p-1 rounded-lg transition-all ${isUnavailable
+                        ? 'text-muted-foreground/30 cursor-not-allowed'
+                        : isSelected
+                          ? 'border-2 border-primary cursor-pointer'
+                          : 'cursor-pointer hover:bg-muted'
+                        }`}
+                    >
+                      <span className={`text-sm font-bold ${isSelected ? 'text-primary' : 'text-foreground'}`}>
+                        {format(day, 'd')}
+                      </span>
+                      {!isPast && (
+                        <span className={`text-[9px] ${isSelected ? 'text-muted-foreground' : 'text-muted-foreground/70'} mt-0.5 uppercase`}>
+                          {isSoldOut ? 'Sold Out' : `£${(totalPrice || 0).toFixed(2)}`}
+                        </span>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
         </div>
 
         <div className="mb-8">
           <p className="text-sm text-muted-foreground mb-2">Select time</p>
           <div className="border-2 border-primary rounded p-3 flex justify-between items-center cursor-pointer">
             <span className="font-bold">1:00 PM</span>
-            <span className="text-sm text-muted-foreground">£{(totalPrice || 77.28).toFixed(2)}</span>
+            <span className="text-sm text-muted-foreground">£{(totalPrice || 0).toFixed(2)}</span>
           </div>
         </div>
       </div>
 
       {/* Sticky Bottom Booking Bar within Sidebar */}
       <div className="bg-[#2B548E] text-white p-4 rounded-b-lg flex justify-between items-center cursor-pointer hover:bg-[#1E3A8A] transition-colors group">
-        <div className="font-bold text-lg">£{(totalPrice || 77.28).toFixed(2)}</div>
+        <div className="font-bold text-lg">£{(totalPrice || 0).toFixed(2)}</div>
         <div className="font-bold flex items-center gap-2">
           Continue
-          <ChevronRightIcon className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+          <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
         </div>
       </div>
     </div>
   );
 };
 
-function ChevronRightIcon(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <polyline points="9 18 15 12 9 6" />
-    </svg>
-  );
-}
 
 export default TourSidebar;

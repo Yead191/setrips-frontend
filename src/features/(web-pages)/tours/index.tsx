@@ -24,7 +24,7 @@ const TourDetails = ({ service }: { service: string }) => {
                 <div className="container mx-auto flex items-center text-sm text-muted-foreground">
                     <Link href="/" className="hover:text-primary transition-colors">Home</Link>
                     <ChevronRight className="w-4 h-4 mx-2" />
-                    <Link href="/tours" className="hover:text-primary transition-colors">Tours</Link>
+                    <Link href="/services/tour-packages" className="hover:text-primary transition-colors">Tours</Link>
                     <ChevronRight className="w-4 h-4 mx-2" />
                     <span className="text-foreground font-medium truncate max-w-[200px] md:max-w-none">
                         {tour.meta.short_title || tour.meta.title}

@@ -23,6 +23,32 @@ const TourGallery = ({ media }: TourGalleryProps) => {
     alt: gallery[0]?.alt || '',
   });
 
+  const mediaList: SelectedMedia[] = [
+    ...gallery.map((img) => ({ type: 'image' as const, url: img.url, alt: img.alt })),
+    ...(video ? [{ type: 'video' as const, url: video.embed_url, alt: video.title }] : []),
+  ];
+
+  const currentIndex = mediaList.findIndex(
+    (m) => m.type === selectedMedia.type && m.url === selectedMedia.url
+  );
+
+  const handlePrev = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    const newIndex = currentIndex > 0 ? currentIndex - 1 : mediaList.length - 1;
+    if (mediaList[newIndex]) {
+      setSelectedMedia(mediaList[newIndex]);
+    }
+  };
+
+  const handleNext = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    const newIndex = currentIndex < mediaList.length - 1 ? currentIndex + 1 : 0;
+    if (mediaList[newIndex]) {
+      setSelectedMedia(mediaList[newIndex]);
+    }
+  };
+
+
   return (
     <div className="flex flex-col md:flex-row gap-4 mb-8">
       {/* Thumbnails Sidebar */}
@@ -87,14 +113,6 @@ const TourGallery = ({ media }: TourGalleryProps) => {
               sizes="(max-width: 768px) 100vw, 75vw"
               className="object-cover"
             />
-
-            {/* Navigation Arrows */}
-            <button className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/30 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white/50 transition-colors opacity-0 group-hover:opacity-100">
-              <ChevronLeft className="w-6 h-6" />
-            </button>
-            <button className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/30 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white/50 transition-colors opacity-0 group-hover:opacity-100">
-              <ChevronRight className="w-6 h-6" />
-            </button>
           </>
         ) : (
           <iframe
@@ -106,6 +124,24 @@ const TourGallery = ({ media }: TourGalleryProps) => {
             referrerPolicy="strict-origin-when-cross-origin"
             allowFullScreen
           ></iframe>
+        )}
+
+        {/* Navigation Arrows */}
+        {mediaList.length > 1 && (
+          <>
+            <button 
+              onClick={handlePrev}
+              className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/30 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-black/50 transition-colors opacity-0 group-hover:opacity-100 z-10"
+            >
+              <ChevronLeft className="w-6 h-6" />
+            </button>
+            <button 
+              onClick={handleNext}
+              className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/30 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-black/50 transition-colors opacity-0 group-hover:opacity-100 z-10"
+            >
+              <ChevronRight className="w-6 h-6" />
+            </button>
+          </>
         )}
       </div>
     </div>
