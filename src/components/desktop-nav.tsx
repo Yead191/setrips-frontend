@@ -11,7 +11,7 @@ export function DesktopNav() {
   const pathname = usePathname();
 
   return (
-    <nav className="hidden md:flex items-center gap-6 lg:gap-8">
+    <nav className="hidden md:flex items-center gap-6 2xl:gap-8">
       {NAV_ITEMS.map((item) => {
         const isActive = pathname === item.href;
         const isChildActive = item.children?.some(child => pathname === child.href);
@@ -22,8 +22,8 @@ export function DesktopNav() {
             <Link
               href={item.href}
               className={cn(
-                "flex items-center gap-1 text-[15px] font-medium transition-all hover:text-primary hover:-translate-y-px relative",
-                isParentActive ? "text-primary" : "text-foreground"
+                "flex items-center gap-1 md:text-sm 2xl:text-[15px]  transition-all hover:text-primary hover:-translate-y-px relative",
+                isParentActive ? "text-primary font-medium" : "text-foreground"
               )}
             >
               {item.label}

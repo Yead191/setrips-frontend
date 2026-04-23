@@ -10,8 +10,8 @@ const Spinner = () => {
         <Image
           src={"/logo.png"}
           alt="Setrips Logo"
-          width={1000}
-          height={500}
+          width={600}
+          height={600}
           unoptimized
           priority
           className="w-fit h-20 lg:h-[200px] object-contain"
