@@ -1,12 +1,9 @@
-import { transportationData } from '@/constants/service/our-services';
-import ServiceDetails from '@/features/(web-pages)/services';
-import { TransportationCategory } from '@/types';
-
-export default function page() {
-    const id = "bus-coaches"
-    const service = transportationData.find(item => item.id === id);
+const BusCoachesPage = () => {
     return (
-        <ServiceDetails service={service as TransportationCategory} id={id} />
-
+        <div>
+            <h1>Bus Coaches</h1>
+        </div>
     )
 }
+
+export default BusCoachesPage
