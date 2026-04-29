@@ -67,7 +67,7 @@ export function CarCard({ car }: CarCardProps) {
       </div>
 
       {/* Content */}
-      <div className="p-6 flex flex-col grow bg-white min-h-[420px]">
+      <div className="p-6 flex flex-col grow bg-white min-h-105">
         <div className="mb-2">
           <h3 className="text-xl font-semibold text-gray-900 mb-1">{car.name}</h3>
           <p className="text-sm text-gray-500">{car.description}</p>
@@ -105,7 +105,7 @@ export function CarCard({ car }: CarCardProps) {
 
         {/* Actions */}
         <div className="grid grid-cols-2 gap-3 mt-auto">
-          <Button onClick={() => router.push(`/booking-history/${car.id}`)} variant="outline" className="w-full rounded-lg h-11 border-primary text-primary hover:bg-primary/5">
+          <Button onClick={() => router.push(`/booking-details/${car.id}`)} variant="outline" className="w-full rounded-lg h-11 border-primary text-primary hover:bg-primary/5">
             VIEW DETAILS
           </Button>
           <Button className="w-full rounded-lg h-11 bg-primary text-white shadow-md">

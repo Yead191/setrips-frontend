@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { format } from "date-fns";
-import { CalendarIcon, Clock, MapPin, Search } from "lucide-react";
+import { CalendarIcon, Clock, MapPin } from "lucide-react";
 import { Button } from "../../ui/button";
 import { Calendar } from "../../ui/calendar";
 import {
@@ -19,11 +19,17 @@ import { Input } from "../../ui/input";
 import { Popover, PopoverContent, PopoverTrigger } from "../../ui/popover";
 import { RadioGroup, RadioGroupItem } from "../../ui/radio-group";
 import { cn } from "../lib/utils";
+import React from "react";
+import { useRouter } from "next/navigation";
 
 const formSchema = z.object({
   tripType: z.enum(["hourly", "distance"]),
-  pickupLocation: z.string().min(2, { message: "Pickup location is required." }),
-  dropoffLocation: z.string().min(2, { message: "Drop-off location is required." }),
+  pickupLocation: z
+    .string()
+    .min(2, { message: "Pickup location is required." }),
+  dropoffLocation: z
+    .string()
+    .min(2, { message: "Drop-off location is required." }),
   pickupDate: z.date({ message: "Pickup date is required." }),
   pickupTime: z.string().min(1, { message: "Pickup time is required." }),
   dropoffDate: z.date({ message: "Drop-off date is required." }),
@@ -33,6 +39,7 @@ const formSchema = z.object({
 type FormValues = z.infer<typeof formSchema>;
 
 export function BannerForm() {
+  const router = useRouter();
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -46,6 +53,7 @@ export function BannerForm() {
 
   function onSubmit(values: FormValues) {
     console.log("Form Data Submitted:", values);
+    router.push("/our-car"); 
   }
 
   return (
@@ -68,10 +76,14 @@ export function BannerForm() {
                       <FormControl>
                         <RadioGroupItem value="hourly" className="sr-only" />
                       </FormControl>
-                      <FormLabel className={cn(
-                        "flex-1 text-center py-2.5 rounded-full cursor-pointer transition-all text-sm font-medium",
-                        field.value === "hourly" ? "bg-white shadow-sm text-primary" : "text-slate-500"
-                      )}>
+                      <FormLabel
+                        className={cn(
+                          "flex-1 text-center py-2.5 rounded-full cursor-pointer transition-all text-sm font-medium",
+                          field.value === "hourly"
+                            ? "bg-white shadow-sm text-primary"
+                            : "text-slate-500",
+                        )}
+                      >
                         Hourly Based
                       </FormLabel>
                     </FormItem>
@@ -79,10 +91,14 @@ export function BannerForm() {
                       <FormControl>
                         <RadioGroupItem value="distance" className="sr-only" />
                       </FormControl>
-                      <FormLabel className={cn(
-                        "flex-1 text-center py-2.5 rounded-full cursor-pointer transition-all text-sm font-medium",
-                        field.value === "distance" ? "bg-white shadow-sm text-primary" : "text-slate-500"
-                      )}>
+                      <FormLabel
+                        className={cn(
+                          "flex-1 text-center py-2.5 rounded-full cursor-pointer transition-all text-sm font-medium",
+                          field.value === "distance"
+                            ? "bg-white shadow-sm text-primary"
+                            : "text-slate-500",
+                        )}
+                      >
                         Distance Based
                       </FormLabel>
                     </FormItem>
@@ -100,7 +116,9 @@ export function BannerForm() {
               name="pickupLocation"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-[#08323D] font-normal">Pickup location</FormLabel>
+                  <FormLabel className="text-[#08323D] font-normal">
+                    Pickup location
+                  </FormLabel>
                   <FormControl>
                     <div className="relative">
                       <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-primary" />
@@ -122,7 +140,9 @@ export function BannerForm() {
               name="dropoffLocation"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-[#08323D] font-normal">Drop-off location</FormLabel>
+                  <FormLabel className="text-[#08323D] font-normal">
+                    Drop-off location
+                  </FormLabel>
                   <FormControl>
                     <div className="relative">
                       <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-primary" />
@@ -145,7 +165,9 @@ export function BannerForm() {
                 name="pickupDate"
                 render={({ field }) => (
                   <FormItem className="flex flex-col">
-                    <FormLabel className="text-[#08323D] font-normal mb-2">Pickup date</FormLabel>
+                    <FormLabel className="text-[#08323D] font-normal mb-2">
+                      Pickup date
+                    </FormLabel>
                     <Popover>
                       <PopoverTrigger asChild>
                         <FormControl>
@@ -153,7 +175,7 @@ export function BannerForm() {
                             variant={"outline"}
                             className={cn(
                               "h-12 pl-3 text-left font-normal bg-slate-50 border-slate-100 rounded-lg",
-                              !field.value && "text-muted-foreground"
+                              !field.value && "text-muted-foreground",
                             )}
                           >
                             {field.value ? (
@@ -165,15 +187,15 @@ export function BannerForm() {
                           </Button>
                         </FormControl>
                       </PopoverTrigger>
-                      <PopoverContent className="w-auto p-0" align="start">
+                      <PopoverContent
+                        className="w-auto p-0 bg-white shadow-lg rounded-md z-50 border"
+                        align="start"
+                      >
                         <Calendar
                           mode="single"
                           selected={field.value}
                           onSelect={field.onChange}
-                          disabled={(date) =>
-                            date < new Date() || date < new Date("1900-01-01")
-                          }
-                          initialFocus
+                          className="rounded-lg border"
                         />
                       </PopoverContent>
                     </Popover>
@@ -186,7 +208,9 @@ export function BannerForm() {
                 name="pickupTime"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-[#08323D] font-normal">Pickup time</FormLabel>
+                    <FormLabel className="text-[#08323D] font-normal">
+                      Pickup time
+                    </FormLabel>
                     <FormControl>
                       <div className="relative">
                         <Clock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-primary" />
@@ -210,7 +234,9 @@ export function BannerForm() {
                 name="dropoffDate"
                 render={({ field }) => (
                   <FormItem className="flex flex-col">
-                    <FormLabel className="text-[#08323D] font-normal mb-2">Drop-off date</FormLabel>
+                    <FormLabel className="text-[#08323D] font-normal mb-2">
+                      Drop-off date
+                    </FormLabel>
                     <Popover>
                       <PopoverTrigger asChild>
                         <FormControl>
@@ -218,7 +244,7 @@ export function BannerForm() {
                             variant={"outline"}
                             className={cn(
                               "h-12 pl-3 text-left font-normal bg-slate-50 border-slate-100 rounded-lg",
-                              !field.value && "text-muted-foreground"
+                              !field.value && "text-muted-foreground",
                             )}
                           >
                             {field.value ? (
@@ -230,15 +256,15 @@ export function BannerForm() {
                           </Button>
                         </FormControl>
                       </PopoverTrigger>
-                      <PopoverContent className="w-auto p-0" align="start">
+                      <PopoverContent
+                        className="w-auto p-0 bg-white shadow-lg rounded-md z-50 border"
+                        align="start"
+                      >
                         <Calendar
                           mode="single"
                           selected={field.value}
                           onSelect={field.onChange}
-                          disabled={(date) =>
-                            date < new Date() || date < new Date("1900-01-01")
-                          }
-                          initialFocus
+                          className="rounded-lg border"
                         />
                       </PopoverContent>
                     </Popover>
@@ -251,7 +277,9 @@ export function BannerForm() {
                 name="dropoffTime"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-[#08323D] font-normal">Drop-off time</FormLabel>
+                    <FormLabel className="text-[#08323D] font-normal">
+                      Drop-off time
+                    </FormLabel>
                     <FormControl>
                       <div className="relative">
                         <Clock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-primary" />
@@ -269,8 +297,10 @@ export function BannerForm() {
             </div>
           </div>
 
-          <Button type="submit" className="w-full h-14 text-lg  bg-primary hover:bg-primary/95 transition-all shadow-lg rounded-xl flex gap-3">
-
+          <Button
+            type="submit"
+            className="w-full h-14 text-lg  bg-primary hover:bg-primary/95 transition-all shadow-lg rounded-xl flex gap-3"
+          >
             Search
           </Button>
         </form>

@@ -23,7 +23,7 @@ export function FleetCarCard({ car, isActive = false }: FleetCarCardProps) {
       )}
     >
       {/* Car Image - Left */}
-      <div className="relative w-full md:w-[320px] h-[158px]  overflow-hidden bg-gray-50 shrink-0">
+      <div className="relative w-full md:w-[320px] h-39.5  overflow-hidden bg-gray-50 shrink-0">
         <Image
           src={car.image}
           alt={car.name}
@@ -80,7 +80,7 @@ export function FleetCarCard({ car, isActive = false }: FleetCarCardProps) {
         </div>
 
         {/* Actions - Right */}
-        <div className="flex flex-col items-center md:items-end justify-between min-w-[160px] gap-4">
+        <div className="flex flex-col items-center md:items-end justify-between min-w-40 gap-4">
           {car.tag && (
             <span className="hidden md:block bg-[#F97316] text-white text-[10px] uppercase font-bold px-3 py-2 rounded-full tracking-wider shadow-sm">
               {car.tag}
