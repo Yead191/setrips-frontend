@@ -25,7 +25,7 @@ const SectionTitle: React.FC<SectionTitleProps> = ({
     return (
         <div className={`${alignClass[align]} ${className}`}>
             <div className="inline-block text-left">
-                <h2 className="text-[26px] lg:text-[43px] font-normal sm:text-[2.5rem] text-[#1a1a1a] md:mb-4 mb-1 leading-[48px] tracking-[-1.2px]">
+                <h2 className="text-[26px] lg:text-[43px] 2xl:text-6xl  sm:text-[2.5rem] text-[#1a1a1a] md:mb-4 mb-1 leading-18 font-fragments tracking-[-1.2px] font-medium ">
                     {title}
                 </h2>
 

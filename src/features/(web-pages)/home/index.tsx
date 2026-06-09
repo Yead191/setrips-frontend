@@ -7,17 +7,19 @@ import ChauffeurCommitment from "@/features/(web-pages)/home/sections/ChauffeurC
 import FleetInfo from "@/features/(web-pages)/home/sections/FleetInfo";
 import { SERVICES_DATA } from "@/constants/home/services";
 import SectionTitle from "@/shared/SectionTItle";
+import HomeBanner from "./sections/HomeBanner";
 const Home = () => {
   return (
     <main>
-      <Banner
+      {/* <Banner
         title="Our Setrips Fleet"
         description="Explore our world-class selection of chauffeur-driven vehicles. Each model is
          meticulously maintained to provide the ultimate in luxury, safety, and comfort for
          every journey."
         backgroundImage="/fleet-banner.png"
         showButton={false}
-      />
+      /> */}
+      <HomeBanner />
       <div className="py-20 bg-[#F9F9F9]">
         <div className="container mx-auto px-4">
           <SectionTitle

@@ -12,10 +12,13 @@
   --ring: #0057A7;
   --destructive: 0 84.2% 60.2%;
   --destructive-foreground: 0 0% 98%;
+
+  --font-pp-fragments-serif: "PP Fragment Serif";
 }
 
 @theme inline {
   --color-background: var(--background);
+  --font-fragments: var(--font-pp-fragments-serif);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
@@ -51,7 +54,7 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: var(--font-geist);
 }
 
 ::-webkit-scrollbar {

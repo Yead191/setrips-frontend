@@ -19,7 +19,7 @@ export function Banner({
   isLanding = false,
 }: BannerProps) {
   return (
-    <section className="relative min-h-[600px] lg:min-h-[700px] lg:h-[calc(100vh-80px)] w-full flex items-center overflow-hidden">
+    <section id="banner" className="relative min-h-150 lg:min-h-175 lg:h-[calc(100vh-80px)] w-full flex items-center overflow-hidden">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <Image
