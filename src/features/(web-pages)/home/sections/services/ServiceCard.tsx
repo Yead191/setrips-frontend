@@ -29,7 +29,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
 
             {/* Body */}
             <div className="flex flex-col gap-1.5 flex-1 pt-4 pb-2 px-1">
-                <h3 className="text-base text-gray-800 leading-snug m-0">
+                <h3 className="text-base text-gray-800 leading-snug m-0 font-fragments">
                     {title}
                 </h3>
 
