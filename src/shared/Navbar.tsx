@@ -40,7 +40,7 @@ export default function Navbar() {
         "fixed top-0 z-40 w-full   transition-all duration-500";
 
     const navBg = isScrolled
-        ? "bg-white/80 backdrop-blur-sm border-gray-200 shadow-md backdrop-blur-md"
+        ? "bg-white backdrop-blur-sm border-gray-200 shadow-md backdrop-blur-md"
         : "bg-transparent ";
 
 
@@ -55,13 +55,13 @@ export default function Navbar() {
                         alt="Setrips Logo"
                         width={140}
                         height={60}
-                        className="h-auto w-35 transition-all duration-300"
+                        className="h-fit w-40 transition-all duration-300 object-contain"
                         style={{ filter: !isScrolled ? 'brightness(0) invert(1)' : 'none' }}
                     />
                 </Link>
 
                 {/* Right side navigation and actions */}
-                <div className="flex items-center gap-6">
+                <div className="flex items-center gap-8">
                     {/* Desktop Navigation */}
                     <DesktopNav isScrolled={isScrolled} />
 

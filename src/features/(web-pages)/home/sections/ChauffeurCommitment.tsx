@@ -10,7 +10,7 @@ const ChauffeurCommitment = () => {
             THE LUXE DRIVE COMMITMENT
           </p>
           <div className="relative inline-block">
-            <h2 className="text-2xl md:text-4xl  text-white">
+            <h2 className="text-2xl md:text-4xl  text-white font-fragments">
               Why Choose Our Chauffeur Service?
             </h2>
             <div className="w-20 h-1 bg-[#A68940] mx-auto mt-6 rounded-full"></div>
@@ -23,7 +23,7 @@ const ChauffeurCommitment = () => {
             return (
               <div
                 key={item.id}
-                className="bg-[#141414] border border-[#FFFFFF1A] p-6 rounded-[32px]  transition-all duration-500 group"
+                className="bg-[#141414] border border-[#FFFFFF1A] p-6 rounded-4xl  transition-all duration-500 group"
               >
                 <div className="mb-4">
                   <div className="w-14 h-14 bg-[#C5A02E1A]  rounded-xl flex items-center justify-center text-[#C5A02E] group-hover:scale-110 transition-transform duration-500">

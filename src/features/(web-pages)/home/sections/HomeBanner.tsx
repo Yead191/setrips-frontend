@@ -7,6 +7,7 @@ import { format } from "date-fns";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 
 const MOCK_LOCATIONS = [
     "London Heathrow Airport (LHR)",
@@ -97,18 +98,22 @@ export default function HomeBanner() {
                 return { title: "Select duration.", subtitle: "Keep your chauffeur as long as you need." };
             case 'pickup':
             default:
-                return { title: "Set your pickup in over 64 countries.", subtitle: "We'll be there on time." };
+                return {
+                    title: "Set your pickup anywhere in the UK.",
+                    subtitle: "We'll be there on time."
+                }
         }
     };
 
     const dynamicContent = getDynamicContent();
 
     return (
-        <div id="banner" className='relative min-h-screen w-full flex flex-col items-center justify-center overflow-hidden'
+        <div id="banner" className='relative min-h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-fixed'
             style={{
                 backgroundImage: "url('/assets/bg/home/home-bg.jpg')",
                 backgroundSize: "cover",
                 backgroundPosition: "center",
+
             }}
         >
             {/* Dimming overlay when focused */}
@@ -122,7 +127,7 @@ export default function HomeBanner() {
             {/* Large text that fades out when focused */}
             <h1
                 className={cn(
-                    "relative z-10 text-[#aecff3] font-fragments text-5xl md:text-6xl text-center transition-all duration-700 ease-in-out -mb-70",
+                    "relative z-10 text-[#aecff3] font-fragments text-5xl md:text-6xl text-center transition-all duration-700 ease-in-out -mb-80",
                     isFocused ? "opacity-0 -translate-y-10 scale-95 pointer-events-none absolute" : "opacity-100 translate-y-0 scale-100"
                 )}
             // data-aos="fade-up"
@@ -134,7 +139,7 @@ export default function HomeBanner() {
             <div
                 ref={formRef}
                 className={cn(
-                    "absolute z-20 w-full max-w-275 px-4 transition-all duration-700 ease-in-out",
+                    "absolute z-20 w-full max-w-275 px-4 transition-all duration-700 ease-in-out ",
                     isFocused ? "top-[60%] -translate-y-[50%] scale-[1.02]" : "top-auto bottom-[05%] scale-100"
                 )}
             >
@@ -167,7 +172,7 @@ export default function HomeBanner() {
 
                 {/* Form Body - The Glassy Container */}
                 <div className={cn(
-                    "bg-[#14151a]/40 backdrop-blur-2xl border border-white/20 rounded-2xl transition-all duration-700 ease-in-out overflow-visible flex flex-col",
+                    "bg-[#14151a]/40 backdrop-blur-2xl border border-white/20 rounded-2xl transition-all duration-700 ease-in-out overflow-visible flex flex-col shadow-[0_8px_32px_rgba(0,0,0,0.25)]",
                     isFocused ? "shadow-2xl bg-[#14151a]/70 min-h-100 p-6 md:p-8" : "shadow-lg hover:bg-[#14151a]/50 p-4 md:p-6 min-h-auto"
                 )}>
                     {/* The Inputs Row */}
@@ -326,10 +331,11 @@ export default function HomeBanner() {
                                     </div>
                                 )}
                             </div>
-
-                            <Button className="w-full xl:w-auto rounded-full px-6 py-6 font-semibold text-[15px] shadow-lg hover:scale-105 transition-transform text-white!" >
-                                View options
-                            </Button>
+                            <Link href={'/our-car'}>
+                                <Button className="w-full xl:w-auto rounded-full px-6 py-6 font-semibold text-[15px] shadow-lg hover:scale-105 transition-transform text-white! cursor-pointer" >
+                                    View options
+                                </Button>
+                            </Link>
                         </div>
 
                     </div>

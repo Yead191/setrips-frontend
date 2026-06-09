@@ -19,7 +19,7 @@ const TourDetails = ({ service }: { service: string }) => {
     }
 
     return (
-        <div className="min-h-screen bg-background pb-20">
+        <div className="min-h-screen bg-background py-20">
             {/* Breadcrumbs */}
             <div className="bg-muted/30 py-4 mb-6">
                 <div className="container mx-auto flex items-center text-sm text-muted-foreground">
@@ -27,7 +27,7 @@ const TourDetails = ({ service }: { service: string }) => {
                     <ChevronRight className="w-4 h-4 mx-2" />
                     <Link href="/tour-packages" className="hover:text-primary transition-colors">Tours</Link>
                     <ChevronRight className="w-4 h-4 mx-2" />
-                    <span className="text-foreground font-medium truncate max-w-[200px] md:max-w-none">
+                    <span className="text-foreground font-medium truncate max-w-50 md:max-w-none">
                         {tour.meta.short_title || tour.meta.title}
                     </span>
                 </div>

@@ -11,7 +11,7 @@ import { TripActions } from "./sections/TripActions";
 
 const TripDetails = () => {
   return (
-    <section className="bg-[#F9FAFB] min-h-screen py-6 md:py-10">
+    <section className="bg-[#F9FAFB] min-h-screen py-6 md:py-10 ">
       <div className="container max-w-310 mx-auto px-4 md:px-6">
 
         {/* Breadcrumbs */}

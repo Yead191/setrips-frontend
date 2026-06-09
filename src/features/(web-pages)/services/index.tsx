@@ -6,7 +6,6 @@ import WhyChooseUsSection from "./sections/WhyChooseUsSection";
 import DiscoverSection from "@/shared/DiscoverSection";
 import OurServices from "@/features/(web-pages)/home/sections/services/Services";
 import { TOUR_SERVICES_DATA } from "@/constants/service/tour-services";
-import TopRoutes from "./sections/TopRoutes";
 import ReadyForExperience from "@/shared/ReadyForExperience";
 
 const ServiceDetails = ({ service, id }: { service: TransportationCategory, id: string }) => {
@@ -38,13 +37,12 @@ const ServiceDetails = ({ service, id }: { service: TransportationCategory, id: 
                 description={service.hero.description}
                 backgroundImage={service.hero.image}
                 showButton={id === "chauffeur-service" ? true : false}
+                tag="Travel in Comfort, Arrive in Style"
             />
             {
                 isTour && <OurServices title="Setrips Top City Transfer" align="left" data={TOUR_SERVICES_DATA} />
             }
-            {
-                isTour && <TopRoutes />
-            }
+
 
             {/* Alternating intro / highlight sections */}
             <section className="py-2 lg:py-10 pt-20! lg:pt-24!">

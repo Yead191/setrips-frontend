@@ -12,6 +12,12 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { useRouter } from "next/navigation";
+import { BannerForm } from "./BannerForm";
+import {
+  Dialog,
+  DialogContent,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 
 interface CarCardProps {
   car: Car;
@@ -73,12 +79,6 @@ export function CarCard({ car }: CarCardProps) {
           <p className="text-sm text-gray-500">{car.description}</p>
         </div>
 
-        <div className="mb-2">
-          <p className="text-2xl font-bold text-gray-900">
-            ${car.pricePerDay}<span className="text-sm font-normal text-gray-400">/Day</span>
-          </p>
-        </div>
-
         {/* Specs */}
         <div className="space-y-3 mb-3">
           <div className="flex items-center gap-3 text-sm text-gray-600">
@@ -108,9 +108,20 @@ export function CarCard({ car }: CarCardProps) {
           <Button onClick={() => router.push(`/booking-details/${car.id}`)} variant="outline" className="w-full rounded-lg h-11 border-primary text-primary hover:bg-primary/5">
             VIEW DETAILS
           </Button>
-          <Button className="w-full rounded-lg h-11 bg-primary text-white shadow-md">
-            BOOK NOW
-          </Button>
+          <Dialog>
+            <DialogTrigger asChild>
+              <Button className="w-full rounded-lg h-11 bg-primary text-white shadow-md">
+                Enquiry
+              </Button>
+            </DialogTrigger>
+            <DialogContent className="p-6 md:p-8 sm:rounded-3xl border border-gray-100 bg-white shadow-2xl w-full min-w-xl max-h-[90vh] overflow-y-auto">
+              <div className="mb-2 text-center">
+                <h2 className="text-3xl font-serif text-[#08323D]">Make an Enquiry</h2>
+                <p className="text-slate-500 mt-1">Fill in your details below and we'll get back to you shortly.</p>
+              </div>
+              <BannerForm isModal={true} />
+            </DialogContent>
+          </Dialog>
         </div>
       </div>
 

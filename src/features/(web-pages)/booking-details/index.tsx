@@ -8,8 +8,8 @@ import { BookingSummary } from "./section/BookingSummary";
 
 const BookingDetailsFeature = () => {
   return (
-    <div className="bg-[#FBFBFB] min-h-screen py-6 md:py-10 px-4 md:px-10 lg:px-20">
-      <div className="max-w-[1400px] mx-auto">
+    <div className="bg-[#FBFBFB] min-h-screen py-6 md:py-10 px-4 md:px-10 lg:px-20 pt-24!">
+      <div className="max-w-350 mx-auto">
         <div className="flex flex-col lg:flex-row md:gap-10 gap-5">
           {/* Main Content Area */}
           <div className="flex-1 space-y-5 md:space-y-8">
@@ -34,7 +34,7 @@ const BookingDetailsFeature = () => {
 
 
           {/* Sidebar Area */}
-          <aside className="w-full lg:w-[450px] shrink-0">
+          <aside className="w-full lg:w-112.5 shrink-0">
             <div className="sticky top-24 space-y-4">
               <BookingSummary />
             </div>
