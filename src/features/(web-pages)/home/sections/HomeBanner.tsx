@@ -38,10 +38,9 @@ type ActiveField = 'pickup' | 'dropoff' | 'date' | 'flight' | 'time' | 'duration
 
 export default function HomeBanner() {
     const [activeTab, setActiveTab] = useState<'one-way' | 'by-the-hour'>('one-way');
-    const [activeField, setActiveField] = useState<ActiveField>(null);
+    const [activeDropdown, setActiveDropdown] = useState<ActiveField>(null);
+    const [isFocused, setIsFocused] = useState(false);
     const formRef = useRef<HTMLDivElement>(null);
-
-    const isFocused = activeField !== null;
 
     useEffect(() => {
         AOS.init({ duration: 800, once: true });
@@ -49,8 +48,22 @@ export default function HomeBanner() {
 
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
-            if (formRef.current && !formRef.current.contains(event.target as Node)) {
-                setActiveField(null);
+            const target = event.target as Node;
+
+            // If the clicked element is no longer in the document (e.g., a suggestion that was just removed), ignore it.
+            if (!document.contains(target)) {
+                return;
+            }
+
+            if (formRef.current && !formRef.current.contains(target)) {
+                setActiveDropdown(null);
+                setIsFocused(false);
+            } else if (formRef.current && formRef.current.contains(target)) {
+                // If clicking inside the form but not on an input that triggers a dropdown, close the dropdown.
+                const isInput = (target as HTMLElement).tagName === 'INPUT' || (target as HTMLElement).closest('.cursor-pointer') || (target as HTMLElement).closest('.rdp');
+                if (!isInput) {
+                    setActiveDropdown(null);
+                }
             }
         };
         document.addEventListener("mousedown", handleClickOutside);
@@ -65,12 +78,13 @@ export default function HomeBanner() {
     const [duration, setDuration] = useState(DURATION_OPTIONS[0]);
 
     const handleFocus = (field: ActiveField) => {
-        setActiveField(field);
+        setIsFocused(true);
+        setActiveDropdown(field);
     };
 
-    // Get dynamic text for the currently active field
+    // Get dynamic text for the currently active field or the last interacted one
     const getDynamicContent = () => {
-        switch (activeField) {
+        switch (activeDropdown) {
             case 'dropoff':
                 return { title: "Choose your drop-off.", subtitle: "Arrive calm and assured." };
             case 'date':
@@ -170,13 +184,13 @@ export default function HomeBanner() {
                                 onFocus={() => handleFocus('pickup')}
                                 className="w-full bg-transparent text-white border-b border-white/30 focus:border-primary pb-2 px-1 outline-none text-[15px] placeholder:text-white/50 transition-colors"
                             />
-                            {activeField === 'pickup' && (
+                            {activeDropdown === 'pickup' && (
                                 <div className="absolute top-full left-0 w-full xl:w-87.5 mt-2 bg-[#1a1c23]/95 backdrop-blur-xl border border-white/10 rounded-xl shadow-2xl overflow-hidden z-50">
                                     <ul className="max-h-75 overflow-y-auto custom-scrollbar p-2">
                                         {MOCK_LOCATIONS.filter(l => l.toLowerCase().includes(pickup.toLowerCase())).map((loc, i) => (
                                             <li key={i}
                                                 className="px-4 py-3 text-white text-sm hover:bg-white/10 rounded-lg cursor-pointer transition-colors"
-                                                onMouseDown={() => { setPickup(loc); setActiveField(null); }}
+                                                onMouseDown={() => { setPickup(loc); setActiveDropdown(null); }}
                                             >
                                                 {loc}
                                             </li>
@@ -198,13 +212,13 @@ export default function HomeBanner() {
                                     onFocus={() => handleFocus('dropoff')}
                                     className="w-full bg-transparent text-white border-b border-white/30 focus:border-primary pb-2 px-1 outline-none text-[15px] placeholder:text-white/50 transition-colors"
                                 />
-                                {activeField === 'dropoff' && (
+                                {activeDropdown === 'dropoff' && (
                                     <div className="absolute top-full left-0 w-full xl:w-87.5 mt-2 bg-[#1a1c23]/95 backdrop-blur-xl border border-white/10 rounded-xl shadow-2xl overflow-hidden z-50">
                                         <ul className="max-h-75 overflow-y-auto custom-scrollbar p-2">
                                             {MOCK_LOCATIONS.filter(l => l.toLowerCase().includes(dropoff.toLowerCase())).map((loc, i) => (
                                                 <li key={i}
                                                     className="px-4 py-3 text-white text-sm hover:bg-white/10 rounded-lg cursor-pointer transition-colors"
-                                                    onMouseDown={() => { setDropoff(loc); setActiveField(null); }}
+                                                    onMouseDown={() => { setDropoff(loc); setActiveDropdown(null); }}
                                                 >
                                                     {loc}
                                                 </li>
@@ -221,15 +235,15 @@ export default function HomeBanner() {
                                     onClick={() => handleFocus('duration')}
                                 >
                                     <span className="text-white text-[15px]">{duration || "Select duration"}</span>
-                                    {activeField === 'duration' ? <ChevronUp className="text-white w-4 h-4" /> : <ChevronDown className="text-white w-4 h-4" />}
+                                    {activeDropdown === 'duration' ? <ChevronUp className="text-white w-4 h-4" /> : <ChevronDown className="text-white w-4 h-4" />}
                                 </div>
-                                {activeField === 'duration' && (
+                                {activeDropdown === 'duration' && (
                                     <div className="absolute top-full left-0 w-full xl:w-75 mt-2 bg-[#1a1c23]/95 backdrop-blur-xl border border-white/10 rounded-xl shadow-2xl overflow-hidden z-50">
                                         <ul className="max-h-62.5 overflow-y-auto custom-scrollbar p-2">
                                             {DURATION_OPTIONS.map((dur, i) => (
                                                 <li key={i}
                                                     className="px-4 py-3 text-white text-sm hover:bg-white/10 rounded-lg cursor-pointer transition-colors"
-                                                    onMouseDown={() => { setDuration(dur); setActiveField(null); }}
+                                                    onMouseDown={() => { setDuration(dur); setActiveDropdown(null); }}
                                                 >
                                                     {dur}
                                                 </li>
@@ -241,7 +255,7 @@ export default function HomeBanner() {
                         )}
 
                         {/* Date */}
-                        <div className="relative w-full xl:w-32.5 border-l-0 xl:border-l border-white/20 xl:pl-4">
+                        <div className="relative w-full xl:w-52.5 border-l-0 xl:border-l border-white/20 xl:pl-4">
                             <label className="block text-white/90 text-[12px] font-semibold mb-1 px-1">Date</label>
                             <div
                                 className="w-full flex items-center justify-between border-b border-white/30 hover:border-white pb-2 px-1 cursor-pointer transition-colors"
@@ -252,16 +266,17 @@ export default function HomeBanner() {
                                 </span>
                                 <ChevronDown className="text-white w-4 h-4" />
                             </div>
-                            {activeField === 'date' && (
+                            {activeDropdown === 'date' && (
                                 <div className="absolute top-full left-0 mt-2 bg-[#1a1c23]/95 backdrop-blur-xl border border-white/10 rounded-xl shadow-2xl z-50 p-3">
                                     <Calendar
                                         mode="single"
                                         selected={date}
-                                        onSelect={(d) => { setDate(d); setActiveField(null); }}
+                                        onSelect={(d) => { setDate(d); setActiveDropdown(null); }}
                                         className="bg-transparent! text-white border-0"
                                         classNames={{
+                                            today: "!bg-transparent !border !border-primary !text-white",
                                             day: "text-white hover:bg-white/20 rounded-md p-2 w-9 h-9 flex items-center justify-center cursor-pointer transition-colors",
-                                            day_selected: "bg-primary text-white font-bold",
+                                            day_selected: "!bg-primary text-white font-bold",
                                             day_outside: "text-white/30",
                                             head_cell: "text-white/60 font-medium pb-2",
                                             caption_label: "text-white font-semibold text-[15px]",
@@ -273,7 +288,7 @@ export default function HomeBanner() {
                         </div>
 
                         {/* Flight Number */}
-                        <div className="relative w-full xl:w-32.5 border-l-0 xl:border-l border-white/20 xl:pl-4">
+                        {/* <div className="relative w-full xl:w-32.5 border-l-0 xl:border-l border-white/20 xl:pl-4">
                             <label className="block text-white/90 text-[12px] font-semibold mb-1 px-1">Flight number</label>
                             <input
                                 type="text"
@@ -283,7 +298,7 @@ export default function HomeBanner() {
                                 onFocus={() => handleFocus('flight')}
                                 className="w-full bg-transparent text-white border-b border-white/30 focus:border-primary pb-2 px-1 outline-none text-[15px] placeholder:text-white/50 transition-colors"
                             />
-                        </div>
+                        </div> */}
 
                         {/* Time & Submit Container */}
                         <div className="flex flex-col xl:flex-row gap-4 xl:gap-4 items-end w-full xl:w-auto border-l-0 xl:border-l border-white/20 xl:pl-4">
@@ -294,15 +309,15 @@ export default function HomeBanner() {
                                     onClick={() => handleFocus('time')}
                                 >
                                     <span className="text-white text-[15px] whitespace-nowrap">{time || "12:30 PM"}</span>
-                                    {activeField === 'time' ? <ChevronUp className="text-white w-4 h-4 ml-1" /> : <ChevronDown className="text-white w-4 h-4 ml-1" />}
+                                    {activeDropdown === 'time' ? <ChevronUp className="text-white w-4 h-4 ml-1" /> : <ChevronDown className="text-white w-4 h-4 ml-1" />}
                                 </div>
-                                {activeField === 'time' && (
+                                {activeDropdown === 'time' && (
                                     <div className="absolute top-full right-0 xl:left-0 w-full xl:w-37.5 mt-2 bg-[#1a1c23]/95 backdrop-blur-xl border border-white/10 rounded-xl shadow-2xl overflow-hidden z-50">
                                         <ul className="max-h-62.5 overflow-y-auto custom-scrollbar p-2">
                                             {TIME_OPTIONS.map((t, i) => (
                                                 <li key={i}
                                                     className="px-4 py-3 text-white text-sm hover:bg-white/10 rounded-lg cursor-pointer transition-colors"
-                                                    onMouseDown={() => { setTime(t); setActiveField(null); }}
+                                                    onMouseDown={() => { setTime(t); setActiveDropdown(null); }}
                                                 >
                                                     {t}
                                                 </li>
