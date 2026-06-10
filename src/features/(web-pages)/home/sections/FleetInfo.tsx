@@ -21,7 +21,7 @@ const FleetInfo = () => {
             </div>
 
             <div className="flex-1 w-full">
-              <div className="relative h-[450px] w-full  rounded-[32px] overflow-hidden shadow-2xl shadow-black/10">
+              <div className="relative h-112.5 w-full  rounded-4xl overflow-hidden shadow-2xl shadow-black/10">
                 <Image
                   src={item.image}
                   alt={item.title}

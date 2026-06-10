@@ -13,7 +13,7 @@ import "swiper/css/pagination";
 export function CarCarousel() {
   return (
     <section className="">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 ">
 
 
         <div className="relative group px-2 ">
@@ -46,12 +46,12 @@ export function CarCarousel() {
 
           {/* Main Navigation Arrows */}
           <button
-            className="main-prev absolute -left-12 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white shadow-xl flex items-center justify-center text-gray-400 hover:text-primary transition-all hover:scale-110 disabled:opacity-0"
+            className="main-prev absolute 2xl:-left-12 -left-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white shadow-xl hidden lg:flex items-center justify-center text-gray-400 hover:text-primary transition-all hover:scale-110 disabled:opacity-0"
           >
             <ChevronLeft className="w-6 h-6" />
           </button>
           <button
-            className="main-next absolute -right-12 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white shadow-xl flex items-center justify-center text-gray-400 hover:text-primary transition-all hover:scale-110 disabled:opacity-0"
+            className="main-next absolute 2xl:-right-12 -right-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white shadow-xl hidden lg:flex items-center justify-center text-gray-400 hover:text-primary transition-all hover:scale-110 disabled:opacity-0"
           >
             <ChevronRight className="w-6 h-6" />
           </button>

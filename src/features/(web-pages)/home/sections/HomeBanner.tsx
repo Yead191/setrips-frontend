@@ -108,9 +108,9 @@ export default function HomeBanner() {
     const dynamicContent = getDynamicContent();
 
     return (
-        <div id="banner" className='relative min-h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-fixed'
+        <div id="banner" className='relative min-h-screen w-full flex flex-col items-center justify-center overflow-visible bg-fixed bg-black'
             style={{
-                backgroundImage: "url('/assets/bg/home/home-bg.jpg')",
+                backgroundImage: "url('/assets/bg/home/home-bg-3.jpg')",
                 backgroundSize: "cover",
                 backgroundPosition: "center",
 
@@ -120,14 +120,14 @@ export default function HomeBanner() {
             <div
                 className={cn(
                     "absolute inset-0 bg-black transition-opacity duration-700 ease-in-out pointer-events-none z-10",
-                    isFocused ? "opacity-60" : "opacity-0"
+                    isFocused ? "opacity-60" : "opacity-40"
                 )}
             />
 
             {/* Large text that fades out when focused */}
             <h1
                 className={cn(
-                    "relative z-10 text-[#aecff3] font-fragments text-5xl md:text-6xl text-center transition-all duration-700 ease-in-out -mb-80",
+                    "absolute bottom-[34%] 2xl:bottom-[30%] z-10 text-[#aecff3] font-fragments text-5xl md:text-6xl text-center transition-all duration-700 ease-in-out ",
                     isFocused ? "opacity-0 -translate-y-10 scale-95 pointer-events-none absolute" : "opacity-100 translate-y-0 scale-100"
                 )}
             // data-aos="fade-up"
@@ -173,7 +173,7 @@ export default function HomeBanner() {
                 {/* Form Body - The Glassy Container */}
                 <div className={cn(
                     "bg-[#14151a]/40 backdrop-blur-2xl border border-white/20 rounded-2xl transition-all duration-700 ease-in-out overflow-visible flex flex-col shadow-[0_8px_32px_rgba(0,0,0,0.25)]",
-                    isFocused ? "shadow-2xl bg-[#14151a]/70 min-h-100 p-6 md:p-8" : "shadow-lg hover:bg-[#14151a]/50 p-4 md:p-6 min-h-auto"
+                    isFocused ? "shadow-2xl bg-[#14151a]/40 min-h-100 p-6 md:p-8" : "shadow-lg hover:bg-[#14151a]/20 p-4 md:p-6 min-h-auto"
                 )}>
                     {/* The Inputs Row */}
                     <div className="flex flex-col xl:flex-row gap-4 xl:gap-3 items-end w-full relative z-30">

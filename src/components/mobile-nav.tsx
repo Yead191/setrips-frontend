@@ -31,7 +31,7 @@ export function MobileNav() {
             <span className="sr-only">Toggle menu</span>
           </Button>
         </SheetTrigger>
-        <SheetContent side="left" className="w-[300px] sm:w-[400px] flex flex-col">
+        <SheetContent side="right" className="w-75 sm:w-100 flex flex-col">
           <SheetHeader>
             <SheetTitle className="text-left">
               <Link href="/" onClick={() => setOpen(false)} className="inline-block cursor-pointer transition-opacity hover:opacity-90">
@@ -40,7 +40,7 @@ export function MobileNav() {
                   alt="Setrips Logo"
                   width={120}
                   height={50}
-                  className="h-auto w-[120px]"
+                  className="h-auto w-30"
 
                 />
               </Link>

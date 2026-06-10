@@ -4,7 +4,6 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 
 export function Footer() {
-
     return (
         <footer className="bg-black text-[#E6E6E6] pt-16 pb-8 px-4 md:px-6 lg:px-8 border-t border-white/10">
             <div className="container mx-auto">
@@ -14,11 +13,12 @@ export function Footer() {
                         <Link href="/" className="flex items-center space-x-2 transition-opacity hover:opacity-90">
                             <Image
                                 src="/logo.png"
-                                alt="Setrips Logo"
+                                alt="Settrips Logo"
                                 width={140}
                                 height={60}
-                                className="h-auto w-[140px] object-contain"
+                                className="h-auto w-35 object-contain"
                                 priority
+                                style={{ filter: 'brightness(0) invert(1)' }}
                             />
                         </Link>
                         <p className="text-sm md:text-base leading-relaxed max-w-sm">
@@ -53,7 +53,11 @@ export function Footer() {
                         <div className="flex flex-col gap-4">
                             <h3 className="text-white font-normal text-lg md:text-xl">Contact</h3>
                             <div className="flex flex-col gap-3 text-sm md:text-lg">
-                                <p>{CONTACT_INFO.address}</p>
+                                {/* Updated UK Address Here */}
+                                <p>
+                                    International House, 109-111 Fulham Palace Road,<br />
+                                    London, England, W6 8JA
+                                </p>
                                 <p>Mail : <a href={`mailto:${CONTACT_INFO.email}`} className="hover:text-primary">{CONTACT_INFO.email}</a></p>
                                 <p>Phone : <a href={`tel:${CONTACT_INFO.phone}`} className="hover:text-primary">{CONTACT_INFO.phone}</a></p>
                             </div>
@@ -78,9 +82,10 @@ export function Footer() {
                 </div>
 
                 {/* Bottom Bar */}
+                {/* Bottom Bar */}
                 <div className="mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-center items-center gap-4 text-sm text-center text-[#D5D5D5]">
                     <p>
-                        Copyright © Setrips | Designed by hostzilla || Passenger & Agent Booking Management System Web application
+                        Copyright © {new Date().getFullYear()} Settrips. All rights reserved.
                     </p>
                 </div>
             </div>
