@@ -47,7 +47,7 @@ export default function Navbar() {
 
     return (
         <header className={`${navBase} ${navBg}`}>
-            <div className="container flex h-16 lg:h-20 items-center justify-between">
+            <div className="container flex h-16 2xl:h-20 items-center justify-between">
                 {/* Logo */}
                 <Link href="/" className="flex items-center space-x-2 transition-opacity hover:opacity-90">
                     <Image
@@ -55,7 +55,7 @@ export default function Navbar() {
                         alt="Setrips Logo"
                         width={140}
                         height={60}
-                        className="h-fit w-32 lg:w-40 transition-all duration-300 object-contain"
+                        className="h-fit w-32 2xl:w-40 transition-all duration-300 object-contain"
                         style={{ filter: !isScrolled ? 'brightness(0) invert(1)' : 'none' }}
                     />
                 </Link>
