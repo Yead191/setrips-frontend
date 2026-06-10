@@ -127,12 +127,12 @@ export default function HomeBanner() {
             {/* Large text that fades out when focused */}
             <h1
                 className={cn(
-                    "absolute bottom-[34%] 2xl:bottom-[30%] z-10 text-[#aecff3] font-fragments text-5xl md:text-6xl text-center transition-all duration-700 ease-in-out ",
+                    "absolute bottom-[34%] 2xl:bottom-[26%] z-10 text-[#aecff3] font-fragments text-3xl md:text-4xl text-center transition-all duration-700 ease-in-out ",
                     isFocused ? "opacity-0 -translate-y-10 scale-95 pointer-events-none absolute" : "opacity-100 translate-y-0 scale-100"
                 )}
             // data-aos="fade-up"
             >
-                Your chauffeur awaits.
+                A Professional Chauffeur, Ready When You Are
             </h1>
 
             {/* Form Container */}
