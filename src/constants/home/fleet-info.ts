@@ -2,25 +2,25 @@ export const FLEET_INFO_DATA = [
   {
     id: 1,
     title: "Setrips Chauffeur Fleet London",
-    description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.",
+    description: "Experience the epitome of urban travel. Our flagship London fleet combines timeless British elegance with cutting-edge comfort, ensuring your journey through the capital is as prestigious as your destination. Every vehicle is meticulously maintained to provide a pristine, whisper-quiet sanctuary.",
     image: "/assets/images/home/services/service4.png",
   },
   {
     id: 2,
     title: "Chauffeur Cars London",
-    description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.",
+    description: "Arrive in immaculate style. Handpicked for their refined interiors and peerless ride quality, our executive sedans offer absolute tranquility amidst the bustling city streets. Perfect for discerning executives and VIPs who demand punctuality paired with uncompromised luxury.",
     image: "/assets/images/home/services/service1.png",
   },
   {
     id: 3,
     title: "Premium Bus Coaches",
-    description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.",
+    description: "Group travel, elevated. Redefining corporate and large-party transit, our luxury coaches feature sumptuous leather seating, advanced climate control, and panoramic views. We ensure that traveling together doesn't mean compromising on personal space or first-class amenities.",
     image: "/assets/images/home/services/service2.png",
   },
   {
     id: 4,
     title: "Tour Service with Setrips",
-    description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.",
+    description: "Discover hidden gems and iconic landmarks with our bespoke itineraries. Guided by our expert chauffeurs, every tour is crafted to deliver an unforgettable, personalized exploration of the city's rich heritage, all from the comfort of a world-class luxury vehicle.",
     image: "/assets/images/home/services/service3.png",
   },
 ];
