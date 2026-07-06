@@ -1,4 +1,6 @@
+
 import { TransportationCategory } from "@/types";
+import { Building2, Car, HeartHandshake, ShieldCheck } from "lucide-react";
 
 export const transportationData: TransportationCategory[] = [
     {
@@ -18,21 +20,25 @@ export const transportationData: TransportationCategory[] = [
         },
         services: [
             {
+                icon: Car,
                 title: "Executive Transfers",
                 description:
                     "Seamless door-to-door executive transportation for business professionals. Our chauffeurs monitor your schedule, handle your luggage, and ensure you arrive refreshed and on time — every time.",
             },
             {
+                icon: Building2,
                 title: "Corporate Account Services",
                 description:
                     "Tailored chauffeur solutions for businesses of all sizes. We manage recurring bookings, multi-passenger logistics, and company travel accounts with dedicated account managers and priority dispatch.",
             },
             {
+                icon: HeartHandshake,
                 title: "Wedding & Special Occasions",
                 description:
                     "Make your special day truly unforgettable with our luxury wedding chauffeur service. Choose from our fleet of classic Rolls-Royces and elegant limousines, decorated to your preference.",
             },
             {
+                icon: ShieldCheck,
                 title: "Private Security Transfers",
                 description:
                     "Discreet, secure transportation for high-profile clients and VIPs. Our trained drivers prioritize your safety and privacy with vetted routes, armoured vehicle options, and 24/7 coordination.",

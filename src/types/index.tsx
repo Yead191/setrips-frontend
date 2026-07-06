@@ -43,7 +43,7 @@ export interface TransportationCategory {
     id: CategoryId;
     hero: HeroSection;
     intro: IntroSection;
-    services: Service[];
+    services: any[];
     highlight?: HighlightSection;
     whyChooseUs?: WhyChooseUsSection;
 }
