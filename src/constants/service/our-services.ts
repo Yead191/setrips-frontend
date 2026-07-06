@@ -1,6 +1,6 @@
 
 import { TransportationCategory } from "@/types";
-import { Building2, Car, HeartHandshake, ShieldCheck } from "lucide-react";
+import { Building, Building2, Car, HeartHandshake, Plane, Route, ShieldCheck, Star } from "lucide-react";
 
 export const transportationData: TransportationCategory[] = [
     {
@@ -99,21 +99,25 @@ export const transportationData: TransportationCategory[] = [
         },
         services: [
             {
+                icon: Plane,
                 title: "Airport Transfers",
                 description:
                     "Reliable and punctual pick-up and drop-off services across all major London airports. Our drivers track your flight live and adjust arrival times accordingly, so you are never left waiting at the kerbside.",
             },
             {
+                icon: Building,
                 title: "Corporate Transportation",
                 description:
                     "Dedicated airport transfer solutions for business travellers and corporate teams. We coordinate multi-passenger pickups, manage tight schedules, and provide consistent service quality across all bookings.",
             },
             {
+                icon: Route,
                 title: "City to City Transfers",
                 description:
                     "Long-distance transfers between major UK cities in premium comfort. Whether connecting London to Manchester, Birmingham, or Edinburgh, our drivers ensure a relaxed and efficient journey door to door.",
             },
             {
+                icon: Star,
                 title: "Event & VIP Transportation",
                 description:
                     "Exclusive meet-and-greet airport services for VIP guests and delegations. Our event transportation team coordinates multi-vehicle fleets, red-carpet arrivals, and security-conscious routing for high-profile clients.",
